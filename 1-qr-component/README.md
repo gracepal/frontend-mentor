@@ -18,8 +18,8 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ### Links
 
-- Solution URL: [FrontendMentor Repo (branch:1-qr-component)](https://github.com/gracepal/FrontentMentor)
-- Live Site URL: [Live on Netlify](https://1-qr-component--voluble-belekoy-baeada.netlify.app/)
+- Solution URL: [FrontendMentor Repo](https://github.com/gracepal/FrontentMentor)
+- Live Site URL: [Live on Netlify](https://main--unrivaled-brigadeiros-cd2dae.netlify.app/)
 
 ### Built with
 
