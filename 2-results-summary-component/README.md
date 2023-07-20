@@ -23,12 +23,16 @@ Users should be able to:
 
 ### Screenshots
 
-![](./screenshot.jpg)
+#### Desktop view
+![Screenshot 2023-07-19 at 10 57 44 PM](https://github.com/gracepal/FrontentMentor/assets/131278381/ca7fe200-6a41-47c9-a67f-ed148bff7502)
+
+#### Mobile view
+![Screenshot 2023-07-19 at 10 58 09 PM](https://github.com/gracepal/FrontentMentor/assets/131278381/e6da6a0f-5004-447f-b256-91380d9b8922)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [FrontendMentor Repo](https://github.com/gracepal/FrontentMentor/tree/main/2-results-summary-component)
+- Live Site URL: [Netlify:main--sage-fudge-5889bd](https://main--sage-fudge-5889bd.netlify.app/)
 
 ### Built with
 
