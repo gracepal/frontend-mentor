@@ -165,3 +165,27 @@ button {
   color: hsl(0, 0%, 100%);
   font-weight: 700;
 }
+
+@media only screen and (max-width: 585px) {
+  /* For mobile phones: */
+  * {
+    /* border: 1px solid coral; */
+    font-size: 1.2;
+  }
+
+  html {
+    width: 100%;
+  }
+
+  body {
+    display: flex;
+    align-items: start;
+    margin: 0;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 1000%;
+  }
+}
