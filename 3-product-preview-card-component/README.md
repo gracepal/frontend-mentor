@@ -26,5 +26,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [FrontendMentor Repo](https://github.com/gracepal/FrontentMentor/tree/main/3-product-preview-card-component)
+- Live Site URL: [Netlify:courageous-haupia-ba3521](https://courageous-haupia-ba3521.netlify.app/)
