@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color-soft-blue: hsl(215, 51%, 70%);
+  --primary-color-cyan: hsl(178, 100%, 50%);
+  --neutral-color-dark-blue-main-bg: hsl(217, 54%, 11%);
+  --neutral-color-dary-blue-card-bg: hsl(216, 50%, 16%);
+  --neutral-color-dark-blue-line: hsl(215, 32%, 27%);
+  --neutral-color-white: hsl(0, 0%, 100%);
+  --font-family: 'Outfit', 'Menlo', sans-serif;
+  --font-size: 18px;
+}
+
+* {
+  border: none;
+  margin: none;
+  padding: none;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+
+  /* temp below */
+  /* border: 1px solid pink; */
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--neutral-color-dark-blue-main-bg);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 4px solid white; */
+  margin-left: -7px;
+  margin-top: -7px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Card section */
+.card {
+  border-radius: 15px;
+  background-color: var(--neutral-color-dary-blue-card-bg);
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px;
+}
+
+.card .image {
+  width: 296px;
+  height: 300px;
+}
+
+.card .image img,
+.card .image .overlay,
+.card .image .view {
+  width: 100%;
+  height: 100%;
+}
+
+.card .image .overlay {
+  background-color: var(--primary-color-cyan);
+  opacity: 0.3;
+  position: relative;
+  top: -305px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .image .view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -600px;
+}
+
+img.view-icon {
+  max-width: 45px;
+  max-height: 45px;
+  color: var(--neutral-color-white);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.card .data {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 20px 0;
+}
+
+.card .data .product-title {
+  color: var(--neutral-color-white);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.card .data .product-title:hover {
+  color: var(--primary-color-cyan);
+}
+
+.card .data .product-description {
+  color: var(--primary-color-soft-blue);
+  font-weight: 300;
+}
+
+.card .data .data-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.card .data .data-bottom-row .product-price {
+  color: var(--primary-color-cyan);
+  display: flex;
+  align-items: center;
+}
+
+.card .data .data-bottom-row .product-availability {
+  color: var(--primary-color-soft-blue);
+  display: flex;
+  align-items: center;
+}
+
+img[src$='svg'] {
+  margin-right: 6px;
+}
+
+hr {
+  /* border: 2px solid white; */
+  width: 100%;
+  height: 1px;
+  color: var(--neutral-color-dark-blue-line);
+  /* Set the hr color */
+  color: var(--neutral-color-dark-blue-line); /* old IE */
+  background-color: var(--neutral-color-dark-blue-line); /* Modern Browsers */
+}
+
+.card .creator {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card .creator img {
+  width: 42px;
+  height: 42px;
+  margin: 1px;
+  border: 1px solid var(--neutral-color-white);
+  border-radius: 50%;
+}
+
+.card .creator p {
+  color: var(--primary-color-soft-blue);
+}
+
+.card .creator p .creator-name {
+  color: var(--neutral-color-white);
+}
+
+.card .creator p .creator-name:hover {
+  color: var(--primary-color-cyan);
+}
+
+/* Attribution section */
+.attribution {
+  color: var(--primary-color-soft-blue);
+  margin-top: 15px;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    /* border: 5px solid pink; */
+  }
+}
