@@ -66,6 +66,7 @@ body {
 .card .image .view {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .card .image .overlay {
@@ -104,6 +105,7 @@ img.view-icon {
   color: var(--neutral-color-white);
   font-weight: 600;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .card .data .product-title:hover {
@@ -168,6 +170,7 @@ hr {
 
 .card .creator p .creator-name {
   color: var(--neutral-color-white);
+  cursor: pointer;
 }
 
 .card .creator p .creator-name:hover {
