@@ -34,5 +34,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/5-nft-preview-card-component
 - Live Site URL: https://jazzy-muffin-64a257.netlify.app/
