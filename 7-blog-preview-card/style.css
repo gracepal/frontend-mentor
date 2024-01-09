@@ -11,6 +11,10 @@
   --font-family: Figtree, sans-serif;
   --font-weight-semibold: 600;
   --font-weight-extrabold: 800;
+
+  /* Calculated */
+  --desktop-width: 588px;
+  --desktop-height: 800px;
 }
 
 * {
@@ -20,6 +24,29 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   background-color: var(--color-primary-yellow);
+  height: 100vh;
+}
+
+.container {
+  border: 2px solid green;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: var(--desktop-width);
+  height: var(--desktop-height);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  border: 2px solid black;
+  width: var(--desktop-width);
+  height: var(--desktop-height);
+  display: flex;
+  flex-direction: column;
 }
