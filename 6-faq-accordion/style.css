@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans Italic';
+  src: url('./assets/fonts/WorkSans-Italic-VariableFont_wght.ttf');
+}
+
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --color-light-pink: hsl(275, 100%, 97%);
+  --color-grayish-purple: hsl(292, 16%, 49%);
+  --color-dark-purple: hsl(292, 42%, 14%);
+  --color-expanded-icon: #ad28eb;
+  --color-collapsed-icon: #301534;
+  --font-size: 16px;
+  --font-family: 'Work Sans';
+  --font-family-italic: 'Work Sans Italic', sans-serif;
+  --bg-desktop: url('./assets/images/background-pattern-desktop.svg');
+  --bg-mobile: url('./assets/images/background-pattern-mobile.svg');
+  --image-minus: url('./assets/images/icon-minus.svg');
+  --image-plus: url('./assets/images/icon-plus.svg');
+  --image-star: url('./assets/images/icon-star.svg');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+/*
+Goal: to hide scrollbar while being able to scroll
+Source https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+Added https://stackoverflow.com/a/30680994
+*/
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+body {
+  background: var(--color-light-pink);
+  background-image: var(--bg-desktop);
+  background-repeat: no-repeat;
+  background-size: 100% auto; /* 100% width, auto height */
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/**********  CONTAINER  **********/
+
+#container {
+  background: var(--color-white);
+  width: 520px;
+  /* max-height: 80%; */
+  /* overflow: scroll; */
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+#content {
+  padding: 25px;
+  margin-bottom: 10px;
+}
+
+/**********  Title  **********/
+
+#title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+/**********  Article  **********/
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.question {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-collapsed-icon);
+  /* outline: none; */
+}
+
+.question:focus {
+  filter: brightness(1.2);
+}
+
+.question span,
+.question img {
+  cursor: pointer;
+}
+
+.question span:hover {
+  color: var(--color-expanded-icon);
+}
+
+.answer {
+  font-weight: 400;
+  color: rgb(126, 124, 126);
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background: rgb(241, 237, 237);
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/**********  ATTRIBUTION  **********/
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/**********  MOBILE  **********/
+
+@media only screen and (max-width: 600px) {
+  body {
+    /* background-color: lightblue; */
+  }
+
+  #container {
+    width: 92%;
+    max-height: 80%;
+    border-radius: 15px;
+    overflow: scroll;
+    margin-bottom: 25px;
+  }
+}
