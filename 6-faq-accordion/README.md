@@ -26,5 +26,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/6-faq-accordion
+- Live Site URL: https://6-faq-accordion--fanciful-meerkat-b97b7b.netlify.app/
+
