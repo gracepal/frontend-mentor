@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;600;800&display=swap');
 
 :root {
   --design-size-mobile: 375px;
@@ -31,22 +31,76 @@ body {
 }
 
 .container {
-  border: 2px solid green;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 }
 
 .card {
   width: var(--desktop-width);
   height: var(--desktop-height);
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  border: 2px solid black;
+  border: 1px solid black;
   width: var(--desktop-width);
   height: var(--desktop-height);
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+
+  background-color: var(--color-neutral-white);
+  border-radius: 15px;
+  box-shadow: 10px 10px 1px var(--color-neutral-black);
+  padding: 35px;
+  margin-bottom: 25px;
+  gap: 16px;
+}
+
+.card img {
+  border-radius: 15px;
+}
+
+.bubble {
+  padding: 12px;
+  background-color: var(--color-primary-yellow);
+  border-radius: 8px;
+  width: 135px;
+  text-align: center;
+  font-weight: var(--font-weight-extrabold);
+}
+
+.card .date {
+  color: var(--color-neutral-black);
+  opacity: 0.8;
+  font-weight: var(--font-weight-semibold);
+  margin-top: -10px;
+}
+
+.card .title:hover {
+  color: var(--color-primary-yellow);
+  cursor: pointer;
+}
+
+.card .description {
+  color: var(--color-neutral-grey);
+  font-size: 25px;
+  font-weight: ;
+}
+
+.card .instructor {
+  display: flex;
+  align-items: center;
+}
+
+.card .instructor .name {
+  font-weight: var(--font-weight-extrabold);
+  margin-left: 15px;
+}
+
+@media only screen and (max-width: 720px) {
+  .card {
+    width: 90%;
+  }
 }
