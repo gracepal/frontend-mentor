@@ -28,3 +28,4 @@ Users should be able to:
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/6-faq-accordion
 - Live Site URL: https://6-faq-accordion--fanciful-meerkat-b97b7b.netlify.app/
+
