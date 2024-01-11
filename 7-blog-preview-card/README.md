@@ -22,12 +22,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Screenshot 2024-01-11 at 12 50 12 AM](https://github.com/gracepal/frontend-mentor/assets/131278381/d9904fe9-718f-4dae-a9fe-09dca4200924)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/7-blog-preview-card
+- Live Site URL: https://659fab282aebc847473568d4--lighthearted-melba-1d7568.netlify.app/
 
 ---
 
@@ -41,4 +41,3 @@ Users should be able to:
 
 ![Screenshot 2024-01-09 at 6 41 05 AM](https://github.com/gracepal/frontend-mentor/assets/131278381/fc209ed3-3d4f-40cb-b0e5-14f7d04d2976)
 
-### Stackoverflows
