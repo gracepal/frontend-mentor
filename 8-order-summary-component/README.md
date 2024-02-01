@@ -23,5 +23,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/8-order-summary-component
 - Live Site URL: https://tubular-tartufo-cd35aa.netlify.app/
