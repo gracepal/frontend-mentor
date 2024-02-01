@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --font-family: "Karla", sans-serif;
+    --font-size: 16px;
+    --font-weight: 400;
+    --font-weight-bold: 700;
+    --color-cyan: hsl(179, 62%, 43%);
+    --color-bright-yellow: hsl(71, 73%, 54%);
+    --color-light-gray: hsl(204, 43%, 93%);
+    --color-grayish-blue: hsl(218, 22%, 67%);
+}
+
+/* General */
+* {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: var(--color-light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.container {
+    width: 800px;
+    height: calc(800px * 0.75);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px hsl(204, 43%, 80%);
+}
+
+.grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "community community"
+    "subscription why";
+    grid-template-rows: 45% 55%;
+
+}
+
+#community {
+    grid-area: community;
+    background: white;
+}
+
+#subscription {
+    grid-area: subscription;
+    background: var(--color-cyan);
+}
+
+#why {
+    grid-area: why;
+    background: var(--color-cyan);
+    opacity: 0.6;
+}
+
+
+
+
+
+
+/* Attribution */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* Media Queries */
+
+@media only screen and (max-width: 840px) {
+    .container {
+        width: 600px;
+        height: calc(600px * 0.75);
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    body {
+        gap: 12px;
+    }
+    .container {
+        width: 320px;
+        height: calc(600px * 2.5);
+    }
+    .grid {
+        grid-template-areas:
+        "community"
+        "subscription"
+        "why";
+        grid-template-rows: 35% 30% 35%;
+    }
+}
+
+/* TODO: vertically shrinking - enforce minimum or static nums */
