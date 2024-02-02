@@ -17,6 +17,8 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ### Screenshot
 
+![profile-card-component](https://github.com/gracepal/frontend-mentor/assets/131278381/ffaf14e0-ce95-46e8-b8d8-dc573062006b)
+
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
