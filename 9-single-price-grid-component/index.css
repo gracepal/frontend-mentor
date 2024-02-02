@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root {
+    /* Style Guide */
     --font-family: "Karla", sans-serif;
     --font-size: 16px;
     --font-weight: 400;
@@ -9,12 +10,16 @@
     --color-bright-yellow: hsl(71, 73%, 54%);
     --color-light-gray: hsl(204, 43%, 93%);
     --color-grayish-blue: hsl(218, 22%, 67%);
+
+    /* Reuse */
+    --border-radius: 15px;
 }
 
 /* General */
 * {
     box-sizing: border-box;
     font-family: var(--font-family);
+    font-size: var(--font-size);
     margin: 0;
     padding: 0;
     border: 0;
@@ -22,6 +27,7 @@
 
 html {
     height: 100%;
+    overflow-y: scroll;
 }
 
 body {
@@ -36,10 +42,10 @@ body {
 }
 
 .container {
-    width: 800px;
-    height: calc(800px * 0.75);
+    width: 650px;
+    height: 500px;
     border-radius: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0 20px 30px hsl(204, 43%, 80%);
 }
 
@@ -50,24 +56,122 @@ body {
     grid-template-areas:
     "community community"
     "subscription why";
-    grid-template-rows: 45% 55%;
-
+    grid-template-columns: 320px 330px;
+    grid-template-rows: calc(500px * .45) calc(500px * .55);
 }
+
+.grid section {
+    padding: 40px 32px;
+}
+
+/* SECTION: COMMUNITY */
 
 #community {
     grid-area: community;
     background: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding: 40px;
 }
+
+#community h1 {
+    font-size: calc(var(--font-size) * 1.8);
+    color: var(--color-cyan);
+    margin-bottom: 24px;
+}
+
+#community h2 {
+    color: var(--color-bright-yellow);
+    margin-bottom: 16px;
+}
+
+#community p {
+    color: rgba(50, 50, 50, 0.55);
+}
+
+/* SECTION: SUBSCRIPTION */
 
 #subscription {
     grid-area: subscription;
     background: var(--color-cyan);
+    border-bottom-left-radius: var(--border-radius);
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
+
+#subscription h2 {
+    font-size: calc(var(--font-size) * 1.3);
+    font-weight: var(--font-weight);
+    margin-bottom: 20px;
+}
+
+#subscription .content {
+    flex-grow: 1;
+}
+
+#subscription .fee {
+    display: flex;
+    align-items: center;
+    color: rgba(250, 250, 250, 0.5);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#subscription .price {
+    font-size: calc(var(--font-size) * 2);
+    opacity: 1;
+    color: rgba(250, 250, 250, 1);
+}
+
+#subscription p {
+    color: rgba(250, 250, 250, 0.85);
+}
+
+.btn-signup {
+    width: calc(100% - 64px);
+    padding: 12px 0;
+    font-size: calc(var(--font-size) * 1.1);
+    border-radius: 5px;
+    background: var(--color-bright-yellow);
+    color: rgb(250, 250, 250);
+    text-shadow: 0 1px 2px hsl(71, 73%, 42%);
+    position: absolute;
+    bottom: 40px;
+    left: 32px;
+}
+
+/* SECTION: WHY */
 
 #why {
     grid-area: why;
     background: var(--color-cyan);
     opacity: 0.6;
+    border-bottom-right-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 28px 1f;
+}
+
+#why h2 {
+    color: white;
+    font-size: calc(var(--font-size) * 1.3);
+    font-weight: var(--font-weight);
+    margin-bottom: 20px;
+}
+
+#why ul {
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#why li {
+    /* margin: 4px 0; */
+    opacity: 0.85;
 }
 
 
@@ -84,7 +188,11 @@ body {
 @media only screen and (max-width: 840px) {
     .container {
         width: 600px;
-        height: calc(600px * 0.75);
+        height: 450px;
+    }
+    .grid {
+        grid-template-columns: 300px 300px;
+        grid-template-rows: calc(450px * .45) calc(450px * .55);
     }
 }
 
@@ -93,15 +201,24 @@ body {
         gap: 12px;
     }
     .container {
-        width: 320px;
-        height: calc(600px * 2.5);
+        width: 300px;
+        height: 950px;
     }
     .grid {
         grid-template-areas:
         "community"
         "subscription"
         "why";
-        grid-template-rows: 35% 30% 35%;
+        grid-template-rows: 325px 300px 325px;
+    }
+    #community {
+
+    }
+    #subscription {
+        border-radius: 0;
+    }
+    #why {
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
 }
 
