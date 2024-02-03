@@ -65,6 +65,17 @@ main.menu {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    position: relative;
+}
+
+.menu::after {
+    content: "";
+    width: 100%;
+    height: calc(100% + 80px);
+    z-index: -1;
+    background: transparent;
+    position: absolute;
+
 }
 
 .menu .top {
@@ -273,5 +284,9 @@ hr {
     li .bold,
     .cell {
         font-size: calc(var(--font-size) * 1.4);
+    }
+    .menu::after {
+        content: "";
+        height: 0;
     }
 }
