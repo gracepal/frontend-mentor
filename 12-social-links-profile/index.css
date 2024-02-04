@@ -92,15 +92,17 @@ body {
     margin: 18px 0 0 0;
 }
 
-button {
+.btn {
     padding: 10px 0;
     border-radius: 8px;
     background: var(--color-grey);
     font-weight: var(--font-weight-bold);
     transition: background 0.5s ease, color 0.5s ease;
+    text-align: center;
+    text-decoration: none;
 }
 
-button:hover {
+.btn:hover {
     cursor: pointer;
     background: var(--color-green);
     color: var(--color-dark-grey);
