@@ -19,9 +19,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot 2024-02-04 at 10 24 31 AM](https://github.com/gracepal/frontend-mentor/assets/131278381/0720dd86-f2fe-4552-8f6a-f8ab44d1bc16)
+#### Desktop View
+<img src="https://github.com/gracepal/frontend-mentor/assets/131278381/0720dd86-f2fe-4552-8f6a-f8ab44d1bc16" width="600">
 
-![Screenshot 2024-02-04 at 10 24 14 AM](https://github.com/gracepal/frontend-mentor/assets/131278381/31af1dfc-0ef0-43a2-9c37-56cdc55c5ca7)
+#### Mobile View
+<img src="https://github.com/gracepal/frontend-mentor/assets/131278381/31af1dfc-0ef0-43a2-9c37-56cdc55c5ca7" width="300">
 
 ### Links
 
