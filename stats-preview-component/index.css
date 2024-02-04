@@ -17,7 +17,7 @@
     --content-width: 465px;
     --content-padding-vertical: 50px;
     --content-padding-horizontal: 45px;
-
+    --card-rounded-corners: 15px;
 }
 
 * {
@@ -44,7 +44,7 @@ body {
 
 .card {
     background: var(--color-card-background);
-    border-radius: 15px;
+    border-radius: var(--card-rounded-corners);
     width: 875px;
     height: 350px;
     display: grid;
@@ -106,6 +106,9 @@ body {
 
 .card .image {
     position: relative;
+    border-top-right-radius: var(--card-rounded-corners);
+    border-bottom-right-radius: var(--card-rounded-corners);
+    overflow: hidden;
 }
 
 .card .image::before {
@@ -116,7 +119,6 @@ body {
     height: 100%;
     z-index: 2;
     position: absolute;
-
 }
 
 .card .image::after {
