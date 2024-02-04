@@ -18,6 +18,7 @@
     --content-padding-vertical: 50px;
     --content-padding-horizontal: 45px;
     --card-rounded-corners: 15px;
+    --card-height: 350px;
 }
 
 * {
@@ -42,11 +43,12 @@ body {
     align-items: center;
 }
 
+
 .card {
     background: var(--color-card-background);
     border-radius: var(--card-rounded-corners);
-    width: 875px;
-    height: 350px;
+    width: calc(var(--image-width) + var(--content-width));
+    height: var(--card-height);
     display: grid;
     grid-template-columns: var(--content-width) var(--image-width);
 }
@@ -130,4 +132,54 @@ body {
     top: 0;
     left: 0;
     z-index: 2;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 920px) {
+    :root {
+        --card-rounded-corners: 8px;
+    }
+    .card {
+        width: 285px;
+        height: 685px;
+        display: grid;
+        grid-template-columns: 285px;
+        grid-template-rows: 205px 1fr;
+        grid-template-areas:
+        "card-image"
+        "card-content"
+        "card-content";
+    }
+    .card .content {
+        grid-area: card-content;
+        padding: 35px 22px;
+    }
+    .card .image {
+        grid-area: card-image;
+        border-top-left-radius: var(--card-rounded-corners);
+        border-bottom-right-radius: 0;
+    }
+    .card .title {
+        font-size: calc(var(--font-size) * 1.6);
+        text-align: center;
+    }
+    .card .message {
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: calc(var(--font-size) * 0.9)
+    }
+    .card .stats {
+        flex-direction: column;
+        align-items: stretch;
+        position: none;
+        width: 100%;
+        gap: 24px;
+        bottom: 36px;
+        left: 0;
+        /* border: 2px solid green; */
+    }
+    .card .stat {
+        text-align: center;
+    }
 }
