@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --font-family: "Inter", sans-serif;
+    --font-size: 14px;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+    --font-weight-bolder: 700;
+    --color-green: hsl(75, 94%, 57%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey: hsl(0, 0%, 20%);
+    --color-dark-grey: hsl(0, 0%, 12%);
+    --color-off-black: hsl(0, 0%, 8%);
+
+    --border-radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--color-white);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--color-off-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Card Styles */
+
+.card {
+    background: var(--color-dark-grey);
+    border-radius: var(--border-radius);
+    width: 365px;
+    padding: 35px 32px;
+    /* box-shadow: 0 5px 10px hsl(0, 0%, 15%); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card Part - Image, Location, Message */
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.card img {
+    border-radius: 50%;
+    width: 80px;
+}
+
+.card .name {
+    font-size: calc(var(--font-size) * 1.8);
+    font-weight: var(--font-weight-bolder);
+}
+
+.card .location {
+    color: var(--color-green);
+}
+
+.card .profile {
+    margin-top: calc(6px + 2px);
+}
+
+
+/* Card Part - Buttons */
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin: 18px 0 0 0;
+}
+
+button {
+    padding: 10px 0;
+    border-radius: 8px;
+    background: var(--color-grey);
+    font-weight: var(--font-weight-bold);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--color-green);
+    color: var(--color-dark-grey);
+}
+
+
+/* Attribution */
+/* .attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+} */
