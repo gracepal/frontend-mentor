@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&display=swap');
+
+:root {
+    --font-inter: "Inter", sans-serif;
+    --font-lexend-deca: "Lexend Deca", sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-size: 15px;
+    --color-main-background: hsl(233, 47%, 7%);
+    --color-card-background: hsl(244, 38%, 16%);
+    --color-accent-violet: hsl(277, 64%, 61%);
+    --color-main-heading-stats: hsl(0, 0%, 100%);
+    --color-main-paragraph: hsla(0, 0%, 100%, 0.75);
+    --color-stats-headings: hsla(0, 0%, 100%, 0.6);
+
+    --image-width: 415px;
+    --content-width: 465px;
+    --content-padding-vertical: 50px;
+    --content-padding-horizontal: 45px;
+    --card-rounded-corners: 15px;
+    --card-height: 350px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: var(--font-size);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--color-main-background);
+    color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+    background: var(--color-card-background);
+    border-radius: var(--card-rounded-corners);
+    width: calc(var(--image-width) + var(--content-width));
+    height: var(--card-height);
+    display: grid;
+    grid-template-columns: var(--content-width) var(--image-width);
+}
+
+.card .content {
+    padding: var(--content-padding-vertical) var(--content-padding-horizontal);
+    position: relative;
+}
+
+.card .title {
+    color: var(--color-main-heading-stats);
+    font-family: var(--font-inter);
+    font-size: calc(var(--font-size) * 2);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: calc(45px / 2);
+}
+
+.card .title .bold {
+    font-size: inherit;
+    color: var(--color-accent-violet);
+}
+
+.card .message {
+    color: var(--color-main-paragraph);
+    font-family: var(--font-inter);
+}
+
+.card .stats {
+    font-family: var(--font-inter);
+    display: flex;
+    position: absolute;
+    bottom: var(--content-padding-vertical);
+    width: calc(var(--content-width) - 2 * var(--content-padding-horizontal));
+    justify-content: space-between;
+}
+
+.card .stats span {
+    display: block;
+}
+
+.card .stat  {
+    text-transform: uppercase;
+    color: var(--color-stats-headings);
+}
+
+.card .stats .bold {
+    /* text-transform: none; */
+    font-size: calc(var(--font-size) * 1.2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-main-heading-stats);
+}
+
+
+
+/* Card Image Part */
+
+.card .image {
+    position: relative;
+    border-top-right-radius: var(--card-rounded-corners);
+    border-bottom-right-radius: var(--card-rounded-corners);
+    overflow: hidden;
+}
+
+.card .image::before {
+    content: "";
+    background: url("./images/image-header-desktop.jpg") 0 0 / cover;
+    /* background: pink; */
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+}
+
+.card .image::after {
+    content: "";
+    background: hsl(277, 64%, calc(61% - 25%), 0.55);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 920px) {
+    :root {
+        --card-rounded-corners: 8px;
+    }
+    .card {
+        width: 285px;
+        height: 685px;
+        display: grid;
+        grid-template-columns: 285px;
+        grid-template-rows: 205px 1fr;
+        grid-template-areas:
+        "card-image"
+        "card-content"
+        "card-content";
+    }
+    .card .content {
+        grid-area: card-content;
+        padding: 35px 22px;
+    }
+    .card .image {
+        grid-area: card-image;
+        border-top-left-radius: var(--card-rounded-corners);
+        border-bottom-right-radius: 0;
+    }
+    .card .title {
+        font-size: calc(var(--font-size) * 1.6);
+        text-align: center;
+    }
+    .card .message {
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: calc(var(--font-size) * 0.9)
+    }
+    .card .stats {
+        flex-direction: column;
+        align-items: stretch;
+        position: none;
+        width: 100%;
+        gap: 24px;
+        bottom: 36px;
+        left: 0;
+        /* border: 2px solid green; */
+    }
+    .card .stat {
+        text-align: center;
+    }
+}
