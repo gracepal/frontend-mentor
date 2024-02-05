@@ -19,7 +19,15 @@ Users should be able to:
 
 ### Screenshot
 
+### Desktop Version
+
+<img width="1080" alt="social-proof-desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/afba41e0-bc0a-4889-977e-d1a26641f999">
+
+### Mobile Version
+
+<img width="1165" alt="social-proof-mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/2ce95845-b6f9-4d99-b6a7-fd4df80eef13">
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/15-social-proof-section
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
