@@ -13,3 +13,123 @@
     --color-white: hsl(0, 0%, 100%);
 }
 
+* {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 52px 0 60px 0;
+}
+
+.container {
+    /* border: 2px solid lightgrey; */
+    /* width: 375px; */
+    /* padding: 21px; */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.container > * {
+    /* border: 2px solid blue; */
+}
+
+/* Message Section */
+
+h1 {
+    font-size: calc(var(--font-size) * 3);
+    text-align: center;
+    color: var(--color-very-dark-magenta);
+}
+
+.message p {
+    color: var(--color-dark-grayish-magenta);
+    font-size: calc(var(--font-size) * 1.2);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Ratings Section */
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.ratings .rating {
+    padding: 16px 0;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--color-very-dark-magenta);
+    background: var(--color-light-grayish-magenta);
+    font-weight: var(--font-weight-bolder);
+}
+
+.stars {
+    margin-bottom: 12px;
+}
+
+
+/* Reviews Section */
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.review {
+    background: var(--color-very-dark-magenta);
+    border-radius: 12px;
+    padding: 40px 36px 22px 36px;
+    color: var(--color-white);
+    position: relative;
+}
+
+.review img {
+    border-radius: 50%;
+    width: 60px;
+}
+
+.name {
+    display: inline-block;
+    position: absolute;
+    top: calc(40px + 60px / 2 - 16px);
+    left: calc(36px + 60px + 22px);
+}
+
+.profile {
+    display: inline-block;
+    position: absolute;
+    top: calc(36px + 60px / 2 + 3px);
+    left: calc(28px + 60px + 22px);
+}
+
+.review .profile {
+    color: var(--color-soft-pink);
+}
+
+.review .quote {
+    margin-top: 26px;
+    line-height: 1.5;
+    font-size: calc(var(--font-size) * 1.1);
+}
+
+/* Media Queries */
+@media only screen and (min-width: 376px) {
+    body {
+        background: blue;
+    }
+}
