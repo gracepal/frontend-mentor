@@ -85,6 +85,8 @@ a.btn {
     color: white;
     position: absolute;
     bottom: var(--section-padding);
+    font-family: var(--font-lexend-deca);
+
 }
 
 a.btn:hover {
