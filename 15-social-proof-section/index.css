@@ -103,21 +103,20 @@ h1 {
     width: 60px;
 }
 
-.name {
+.review .name {
     display: inline-block;
     position: absolute;
+    /* paddingTop + imageWidth/2 - baseFont+1px */
     top: calc(40px + 60px / 2 - 16px);
+    /* paddingLeft + imageWidth + manuallyRandom */
     left: calc(36px + 60px + 22px);
 }
 
-.profile {
+.review .profile {
     display: inline-block;
     position: absolute;
     top: calc(36px + 60px / 2 + 3px);
     left: calc(28px + 60px + 22px);
-}
-
-.review .profile {
     color: var(--color-soft-pink);
 }
 
@@ -129,7 +128,129 @@ h1 {
 
 /* Media Queries */
 @media only screen and (min-width: 376px) {
-    body {
-        background: blue;
+    html,body {
+        height: 100%;
     }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Setup Grid */
+    main.container {
+        /* border: 2px solid grey; */
+        display: grid;
+        max-width: 980px;
+        max-height: 620px;
+        grid-template-areas:
+        "message ratings"
+        "reviews reviews";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+        row-gap: 48px;
+    }
+    .message {
+        grid-area: message;
+    }
+    .ratings {
+        grid-area: ratings;
+        position: relative;
+    }
+    .reviews {
+        grid-area: reviews;
+        position: relative;
+    }
+    /* Message Area */
+    .message h1 {
+        font-size: calc(var(--font-size) * 3);
+        width: 65%;
+        text-align: left;
+    }
+    .message p {
+        width: 85%;
+        text-align: left;
+        line-height: 1.5rem;
+    }
+    /* Ratings Area */
+    .rating {
+        width: 390px;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        gap: 12px;
+    }
+    .rating:first-of-type {
+        position: absolute;
+        top: 36px;
+        left: 0;
+    }
+    .rating:nth-of-type(2) {
+        position: absolute;
+        top: 102px;
+        left: 50px;
+    }
+    .rating:last-of-type {
+        position: absolute;
+        top: 168px;
+        left: 100px;
+    }
+    .rating .stars {
+        display: inline-block;
+        margin: 0 0 0 28px;
+    }
+
+    /* Reviews Area */
+    .reviews {
+        flex-direction: row;
+        gap: 26px;
+        position: relative;
+    }
+    .review {
+        border-radius: 8px;
+        height: 204px;
+        /* position: absolute; */
+        width: 308px;
+        padding: 28px 22px 16px 22px;
+        position: absolute;
+    }
+    .review:first-of-type {
+        top: 0;
+        left: 0;
+    }
+    .review:nth-of-type(2) {
+        top: 25px;
+        /* reviewWidth + gridGap */
+        left: calc(308px + 26px);
+    }
+    .review:last-of-type {
+        top: 50px;
+        left: calc(308px * 2 + 26px * 2);
+    }
+    .review img {
+        border-radius: 50%;
+        width: 56px;
+    }
+    .review .name {
+        display: inline-block;
+        position: absolute;
+        /* paddingTop + imageWidth/2 - baseFont+1px */
+        top: calc(28px + 56px / 2 - 15px);
+        /* paddingLeft + imageWidth + manuallyRandom */
+        left: calc(22px + 56px + 15px);
+    }
+
+    .review .profile {
+        display: inline-block;
+        position: absolute;
+        top: calc(28px + 56px / 2 + 8px);
+        left: calc(22px + 56px + 15px);
+        color: var(--color-soft-pink);
+    }
+    .review .quote {
+        margin-top: 18px;
+        line-height: 1.2;
+        font-size: var(--font-size);
+    }
+
 }
