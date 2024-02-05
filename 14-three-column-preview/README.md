@@ -22,11 +22,11 @@ Users should be able to:
 
 ### Desktop View
 
-<img width="600" alt="Screenshot 2024-02-04 at 5 23 38 PM" src="https://github.com/gracepal/frontend-mentor/assets/131278381/fbb6d012-4874-400e-9e2a-12682765390d">
+<img width="842" alt="Screenshot 2024-02-04 at 5 48 14 PM" src="https://github.com/gracepal/frontend-mentor/assets/131278381/7a942d1d-6391-43fc-9366-52029561741b">
 
 ### Mobile View
 
-<img width="435" alt="Screenshot 2024-02-04 at 5 25 22 PM" src="https://github.com/gracepal/frontend-mentor/assets/131278381/7ac281a5-7b94-407d-9e18-da86e53d2118">
+<img width="500" alt="Screenshot 2024-02-04 at 5 48 29 PM" src="https://github.com/gracepal/frontend-mentor/assets/131278381/f5255abf-f88a-47cd-95e5-825a8fc61829">
 
 ### Links
 
