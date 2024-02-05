@@ -30,4 +30,4 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/15-social-proof-section
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://clinquant-bavarois-389e5f.netlify.app/
