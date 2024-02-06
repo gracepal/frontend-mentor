@@ -30,6 +30,10 @@
     /* border: 2px solid blue; */
 }
 
+html {
+    /* width: 100vw; */
+    overflow-y: scroll;
+}
 
 body {
     width: 100%;
@@ -38,7 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--color-very-light-gray);
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .container {
@@ -163,6 +167,9 @@ section.bottom {
 }
 
 @media only screen and (max-width: 648px) {
+    body {
+        padding: 80px 0;
+    }
     .container {
         width: 100%;
     }
@@ -174,10 +181,13 @@ section.bottom {
         max-width: calc(var(--card-width) * 1.5);
     }
     .title.light {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
     .title.bold {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+    }
+    .top .message {
+        font-size: 0.9rem;
     }
     section.bottom {
         grid-template-areas:
