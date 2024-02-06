@@ -13,6 +13,8 @@
     --color-very-dark-blue: hsl(234, 12%, 34%);
     --color-grayish-blue: hsl(229, 6%, 66%);
     --color-very-light-gray: hsl(0, 0%, 98%);
+
+    --card-width: 290px;
 }
 
 /* GENERAL STYLES */
@@ -25,6 +27,7 @@
     padding: 0;
     border: 0;
     background: none;
+    /* border: 2px solid blue; */
 }
 
 
@@ -35,24 +38,25 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--color-very-light-gray);
-    padding: 60px 0 0 0;
+    padding: 40px 0;
 }
 
 .container {
-    max-width: 95%;
-    max-width: 950px;
+    max-width: 966px;
     display: grid;
     grid-template-rows: 200px 1fr;
-    padding: 10px;
+    justify-content: center;
 }
 
 /* CONTENT DESCRIPTION STYLES */
 
 .top {
     text-align: center;
+
 }
 
 .title.light {
+    width: 100%;
     font-size: 2.2rem;
     font-weight: var(--font-weight-light);
     /* color: var(--color-very-dark-blue); */
@@ -75,28 +79,26 @@ body {
 /* CARD STYLES */
 
 section.bottom {
-    padding-top: 16px;
+    padding: 16px;
     display: grid;
     grid-template-areas:
     "supervisor team-builder calculator"
     "supervisor karma calculator";
-    gap: 22px;
+    justify-items: center;
+    gap: 20px;
 }
 
 
 /* SINGLE CARD STYLE */
 
 .card {
-    width: 300px;
+    width: var(--card-width);
     height: 205px;
     /* box-shadow: 0 8px 22px var(--color-grayish-blue); */
     box-shadow: 0 12px 18px hsl(229, 6%, 88%);
     border-radius: 8px;
     padding: 25px;
     position: relative;
-}
-
-.card * {
 }
 
 .card.supervisor {
@@ -133,7 +135,6 @@ section.bottom {
 }
 
 .card img[src$="svg"] {
-    /* border: 2px solid blue; */
     /* float: right; */
     width: 45px;
     position: absolute;
@@ -143,3 +144,46 @@ section.bottom {
 }
 
 /* MEDIA QUERIES */
+
+@media only screen and (max-width: 976px) {
+    .container {
+        width: 650px;
+    }
+    .top .message {
+        width: 75%;
+    }
+    section.bottom {
+        width: 100%;
+        grid-template-areas:
+        "supervisor  karma"
+        "team-builder calculator";
+        gap: 16px;
+    }
+
+}
+
+@media only screen and (max-width: 648px) {
+    .container {
+        width: 100%;
+    }
+    .top {
+        /* border: 2px solid purple; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: calc(var(--card-width) * 1.5);
+    }
+    .title.light {
+        font-size: 1.8rem;
+    }
+    .title.bold {
+        font-size: 1.8rem;
+    }
+    section.bottom {
+        grid-template-areas:
+        "supervisor"
+        "team-builder"
+        "karma"
+        "calculator";
+    }
+}
