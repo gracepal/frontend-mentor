@@ -23,4 +23,4 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/16-article-preview-component
-- Live Site URL:
+- Live Site URL: https://gleeful-semifreddo-6e30ce.netlify.app/
