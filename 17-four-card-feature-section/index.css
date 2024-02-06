@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
 :root {
     --font-family: 'Poppins', sans-serif;
-    --font-size: 15px;
+    --font-size-main: 15px;
     --font-weight-light: 200;
     --font-weight-regular: 400;
     --font-weight-bold: 600;
@@ -27,38 +27,119 @@
     background: none;
 }
 
-html {
-    width: 100%;
-    height: 100%;
-}
 
 body {
-    /* border: 12px solid slateblue; */
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--color-very-light-gray);
+    padding: 60px 0 0 0;
 }
 
 .container {
-    border: 8px solid seagreen;
     max-width: 95%;
-    max-width: 900px;
+    max-width: 950px;
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    padding: 10px;
 }
 
 /* CONTENT DESCRIPTION STYLES */
 
+.top {
+    text-align: center;
+}
 
+.title.light {
+    font-size: 2.2rem;
+    font-weight: var(--font-weight-light);
+    /* color: var(--color-very-dark-blue); */
+    color: hsl(234, 12%, 50%);
+}
+
+.title.bold {
+    font-size: 2.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+    margin-bottom: 14px;
+}
+
+.top .message {
+    display: inline-block;
+    width: 60%;
+    color: var(--color-grayish-blue);
+}
 
 /* CARD STYLES */
 
-
+section.bottom {
+    padding-top: 16px;
+    display: grid;
+    grid-template-areas:
+    "supervisor team-builder calculator"
+    "supervisor karma calculator";
+    gap: 22px;
+}
 
 
 /* SINGLE CARD STYLE */
 
+.card {
+    width: 300px;
+    height: 205px;
+    /* box-shadow: 0 8px 22px var(--color-grayish-blue); */
+    box-shadow: 0 12px 18px hsl(229, 6%, 88%);
+    border-radius: 8px;
+    padding: 25px;
+    position: relative;
+}
 
+.card * {
+}
 
+.card.supervisor {
+    grid-area: supervisor;
+    border-top: 5px solid var(--color-cyan);
+    align-self: center;
+}
+
+.card.team-builder {
+    grid-area: team-builder;
+    border-top: 5px solid var(--color-red);
+}
+
+.card.karma {
+    grid-area: karma;
+    border-top: 5px solid var(--color-orange);
+}
+
+.card.calculator {
+    grid-area: calculator;
+    border-top: 5px solid var(--color-blue);
+    align-self: center;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--color-very-dark-blue);
+    margin: 0 0 12px 0;
+}
+
+.card .message {
+    font-size: 0.78rem;
+    color: var(--color-grayish-blue);
+}
+
+.card img[src$="svg"] {
+    /* border: 2px solid blue; */
+    /* float: right; */
+    width: 45px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+
+}
 
 /* MEDIA QUERIES */
