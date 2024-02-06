@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     border: 0;
+    background: none;
     font-family: var(--font-family);
     font-size: var(--font-size);
 }
@@ -132,15 +133,6 @@ button:has(>svg[name*=share]) {
     background: var(--color-light-grayish-blue);
 }
 
-button:has(>svg[name*=share]):hover {
-    background: 'red';
-}
-
-svg {
-    color: white;
-    fill: white;
-}
-
 svg[name*=share] {
     width: 20px;
     height: 20px;
@@ -200,4 +192,74 @@ button:hover {
     background: var(--color-very-dark-grayish-blue);
 }
 
+/* Media Queries */
 
+@media only screen and (max-width: 929px) {
+    .card {
+        width: 375px;
+        height: 575px;
+        flex-direction: column;
+    }
+    section.image {
+        border-radius: 8px 8px 0 0;
+    }
+    .content {
+        padding: 36px 40px 25px 36px;
+        position: relative;
+    }
+    .content h1 {
+        font-size: calc(var(--font-size) *1.35);
+    }
+    .content p {
+        font-size: calc(var(--font-size) * 1.1);
+        line-height: 1.8rem;
+    }
+    .card .bottom {
+        position: absolute;
+        bottom: 25px;
+        left: 36px;
+        width: calc(375px - 2 * 36px);
+    }
+    .bottom .avatar img {
+        width: 55px;
+    }
+    /* Mobile bottom links */
+    .bottom-hover-mobile {
+        background: var(--color-very-dark-grayish-blue);
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 82px;
+        border-radius: 0 0 8px 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 0 32px;
+        gap: 12px;
+
+    }
+    .bottom-hover-mobile > span {
+        text-transform: uppercase;
+        color: var(--color-light-grayish-blue);
+        font-size: calc(var(--font-size) * 1.5);
+        letter-spacing: 3px;
+        margin: auto 8px;
+    }
+    .bottom-hover-mobile button {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bottom-hover-mobile button.social img {
+        width: 24px;
+        height: 24px;
+    }
+    .bottom-hover-mobile button:last-of-type {
+        width: 42px;
+        height: 42px;
+        margin-right: -8px;
+    }
+}
