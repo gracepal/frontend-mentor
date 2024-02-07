@@ -23,6 +23,14 @@ Users should be able to:
 
 ### Screenshot
 
+### Desktop
+
+<img width="600" alt="comin-soon-desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/e9b0e5ad-7dad-49d4-9198-d0ebe20bdea2">
+
+### Mobile
+
+<img width="300" alt="coming-soon-mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/fd52cf51-5b70-4474-ac85-dc87c209b7ca">
+
 ### Links
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/17-four-card-feature-section
