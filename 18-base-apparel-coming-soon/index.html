@@ -20,16 +20,18 @@
 
       <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
-      <div class="email-form">
-        <input type="email" placeholder="Email Address">
+      <form novalidate class="email-form" action="#">
+        <input type="email" placeholder="Email Address" required>
         <button type="submit">&gt;</button>
-      </div>
+        <div class="mssg mssg-error">Please provide a valid email</div>
+      </form>
     </section>
     <section class="image">
       <img class="desktop" src="./images/hero-desktop.jpg" alt="">
       <img class="mobile" src="./images/hero-mobile.jpg" alt="">
     </section>
   </div>
+  <script src="./index.js"></script>
 </body>
 
 </html>
