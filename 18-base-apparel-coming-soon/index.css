@@ -9,6 +9,8 @@
     --color-desaturated-red: hsl(0, 36%, 70%);
     --color-soft-red: hsl(0, 93%, 68%);
     --color-dark-grayish-red: hsl(0, 6%, 24%);
+    --color-error: hsl(0, 93%, 68%);
+    --color-success: hsl(150, 93%, 68%);
     --linear-gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     --linear-gradient-vibrant: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 }
@@ -42,6 +44,10 @@ body {
     box-shadow: 0 4px 32px hsl(0, 36%, 90%);
     border-radius: 5px;
     position: relative;
+}
+
+.hidden {
+    display: none;
 }
 
 /* SECTION CONTENT */
@@ -100,6 +106,8 @@ h1 ~ p {
     margin-top: 18px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    position: relative;
 }
 
 input {
@@ -111,6 +119,7 @@ input {
     flex: 0 0 100%;
     font-size: calc(var(--font-size) * 1.1);
     color: var(--color-dark-grayish-red);
+    transition: all 0.2s ease;
 }
 
 input::placeholder {
@@ -121,12 +130,54 @@ input::placeholder {
 input:focus {
     outline: none;
     box-shadow: 0 2px 8px hsl(0, 36%, 93%);
+    border: unset;
 }
 
 input:focus::placeholder {
     color: transparent;
 }
+input.invalid {
+    border: 2px ridge var(--color-error);
+}
+form.invalid::after,
+form.valid::after {
+    content: "";
+    z-index: 100;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: 12px;
+    right: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form.invalid::after {
+    content: "❕";
+    background: var(--color-error);
+}
 
+form.valid::after {
+    content: "✓";
+    color: var(--color-success);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input.valid {
+    border: 2px ridge var(--color-success);
+}
+input ~ .mssg {
+    margin: 6px 0;
+    padding: 6px 16px;
+    width: 100%;
+}
+.mssg-error {
+    color: var(--color-soft-red);
+    opacity: 0;
+}
 button[type=submit] {
     flex: 0 0 20%;
     margin-left: -20%;
@@ -146,6 +197,11 @@ button:hover {
     font-weight: var(--font-weight-normal);
     transform: translateX(10px);
     box-shadow: 0 5px 18px hsl(0, 36%, 80%);
+}
+
+button:active {
+    filter: brightness(110%);
+    box-shadow: 0 15px 28px hsl(0, 36%, 80%);
 }
 
 /* SECTION IMAGE */
