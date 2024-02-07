@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --font-family: "Poppins", sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 500;
+    --font-weight-bolder: 600;
+    --font-weight-boldest: 700;
+    --font-size: 16px;
+    --color-red: hsl(0, 100%, 74%);
+    --color-green: hsl(154, 59%, 51%);
+    --color-blue: hsl(248, 32%, 49%);
+    --color-dark-blue: hsl(249, 10%, 26%);
+    --color-grayish-blue: hsl(246, 25%, 77%);
+    --img-bg-desktop: url("./images/bg-intro-desktop.png");
+    --img-bg-mobile: url("./images/bg-intro-mobile.png");
+    --icon-error: url("./images/icon-error.svg");
+}
