@@ -16,3 +16,8 @@
     --img-bg-mobile: url("./images/bg-intro-mobile.png");
     --icon-error: url("./images/icon-error.svg");
 }
+
+body {
+    background-color: var(--color-red);
+    background-image: var(--img-bg-desktop);
+}
