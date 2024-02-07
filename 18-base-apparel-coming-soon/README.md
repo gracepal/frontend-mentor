@@ -31,6 +31,10 @@ Users should be able to:
 
 <img width="300" alt="coming-soon-mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/fd52cf51-5b70-4474-ac85-dc87c209b7ca">
 
+### Email Field Interaction
+
+![coming-soon-page-added-demo](https://github.com/gracepal/frontend-mentor/assets/131278381/f4acd473-d39d-4366-a7bf-cb88e388a7cd)
+
 ### Links
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/18-base-apparel-coming-soon
