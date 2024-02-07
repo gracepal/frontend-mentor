@@ -33,5 +33,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/17-four-card-feature-section
-- Live Site URL:
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/18-base-apparel-coming-soon
+- Live Site URL: https://stellar-sopapillas-5ee161.netlify.app/
