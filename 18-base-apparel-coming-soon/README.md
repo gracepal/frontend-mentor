@@ -21,6 +21,8 @@ Users should be able to:
   - The `input` field is empty
   - The email address is not formatted correctly
 
+Refer demo giphy in https://github.com/gracepal/frontend-mentor/pull/37
+
 ### Screenshot
 
 ### Desktop
@@ -30,10 +32,6 @@ Users should be able to:
 ### Mobile
 
 <img width="300" alt="coming-soon-mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/fd52cf51-5b70-4474-ac85-dc87c209b7ca">
-
-### Email Field Interaction
-
-![coming-soon-page-added-demo](https://github.com/gracepal/frontend-mentor/assets/131278381/f4acd473-d39d-4366-a7bf-cb88e388a7cd)
 
 ### Links
 
