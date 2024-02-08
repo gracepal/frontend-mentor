@@ -293,6 +293,14 @@ footer a:has(>svg):hover path {
         flex-direction: column;
         width: 85%;
     }
+    label.has-error {
+        margin-bottom: 32px;
+        padding-bottom: 4px;
+    }
+    label.has-error::after {
+        padding: 22px 0 0 0;
+        justify-content: center;
+    }
     .dashboard img {
         width: 100%;
         max-width: 500px;

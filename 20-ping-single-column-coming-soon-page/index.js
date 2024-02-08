@@ -8,7 +8,7 @@ const classNoError = 'no-error'
 const classIsEmpty = 'is-empty'
 const classIsInvalid = 'is-invalid'
 
-const debugging = false
+const debugging = true
 
 function isValidEmail(email) {
   // Source: https://stackoverflow.com/a/46181
@@ -20,6 +20,7 @@ function isValidEmail(email) {
 function addStyleForMissingInput() {
   // Add class for missing input
   if (debugging) console.log('addStyleForMissingInput()')
+  emailLabelEl.classList = []
   emailLabelEl.classList.add(classHasError)
   emailLabelEl.classList.add(classIsEmpty)
 }
@@ -27,6 +28,7 @@ function addStyleForMissingInput() {
 function addStyleForInvalidInput() {
   // Add stule for invalid input
   if (debugging) console.log('addStyleForInvalidInput()')
+  emailLabelEl.classList = []
   emailLabelEl.classList.add(classHasError)
   emailLabelEl.classList.add(classIsInvalid)
 }
@@ -34,6 +36,7 @@ function addStyleForInvalidInput() {
 function addStyleForAcceptedInput() {
   // Add style for accepted input
   if (debugging) console.log('addStyleForAcceptedInput()')
+  emailLabelEl.classList = []
   emailLabelEl.classList.add(classNoError)
 }
 
