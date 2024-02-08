@@ -41,5 +41,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/19-intro-component-with-signup-form
+- Live Site URL: https://luminous-cannoli-5ba9f7.netlify.app/
