@@ -16,6 +16,7 @@
     --color-very-dark-blue: hsl(209, 33%, 12%);
 
     --footer-height: 150px;
+    --color-success: hsl(150, 93%, 68%);
 }
 
 * {
@@ -102,28 +103,81 @@ h1 + p.cta {
 
 /* MAIN STYLES - SIGNUP */
 
-section.signup {
+form.signup {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 12px;
-    width: 620px;
+    width: 580px;
     margin: 20px 0;
 }
 
 label[for=email] {
     flex: 1 1 auto;
+    position: relative;
+}
+
+input:focus {
+    border: 2px solid var(--color-pale-blue);
+    box-shadow: -3px 3px 8px hsl(223, 100%, 96%);
+}
+
+
+label.has-error input,
+label[for=email] input.has-error:focus {
+    border: 2px solid var(--color-light-red);
+}
+
+label.no-error input,
+input.label[for=email] .no-error:focus {
+    border: 2px solid var(--color-success);
+}
+
+label[for=email].no-error::after {
+    content: "";
+}
+
+label.is-empty::after {
+    content: "Whoops! It looks like you forgot to add your email";
+    width: 100%;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--color-light-red);
+    padding: 0 0 0 22px;
+    height: 26px;
+    bottom: -26px;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+label.is-invalid::after {
+    content: "Please provide a valid email address";
+    width: 100%;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--color-light-red);
+    padding: 0 0 0 22px;
+    height: 26px;
+    bottom: -26px;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
 }
 
 input[name=email] {
     border: 2px solid rgba(211,211,211,0.5);
     border-radius: 25px;
-    padding: 12px 18px;
+    padding: 12px 8px 12px 22px;
     width: 100%;
+    font-size: 14px;
 }
+
 input[name=email]::placeholder {
     color: rgba(211,211,211,0.8);
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .signup button {
