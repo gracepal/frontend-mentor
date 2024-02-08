@@ -15,7 +15,7 @@
     --color-gray: hsl(0, 0%, 59%);
     --color-very-dark-blue: hsl(209, 33%, 12%);
 
-    --footer-height: 150px;
+    --footer-height: 120px;
     --color-success: hsl(150, 93%, 68%);
 }
 
@@ -81,7 +81,7 @@ section.cta {
 .logo {
     width: 86px;
     height: 26px;
-    margin: 32px 0;
+    margin: 30px 0 28px 0;
 }
 
 h1 {
@@ -98,7 +98,7 @@ h1 > span {
 }
 
 h1 + p.cta {
-    margin: 20px 0;
+    margin: 18px 0;
 }
 
 /* MAIN STYLES - SIGNUP */
@@ -109,7 +109,7 @@ form.signup {
     justify-content: center;
     gap: 12px;
     width: 580px;
-    margin: 20px 0;
+    margin: 6px 0;
 }
 
 label[for=email] {
@@ -199,7 +199,7 @@ input[name=email]::placeholder {
 
 .dashboard img {
     width: 600px;
-    margin: 20px 0;
+    margin: 16px 0;
 }
 
 /* FOOTER STYLES */
@@ -211,10 +211,11 @@ footer {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     color: var(--color-gray);
+    padding-top: 5px;
 }
 .social-links {
     display: flex;
@@ -223,18 +224,18 @@ footer {
     gap: calc(var(--font-size) * 0.5)
 }
 .social-links a {
-    height: 32px;
+    height: 25px;
 }
 a:hover {
     background-color: var(--color-blue);
     border-radius: 50%;
 }
 footer svg {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     border: 1px solid rgba(211, 211, 211, 0.5);
     border-radius: 50%;
-    padding: 8px;
+    padding: 5px;
 }
 footer svg path {
     fill: var(--color-blue);
