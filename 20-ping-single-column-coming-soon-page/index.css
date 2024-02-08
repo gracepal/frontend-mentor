@@ -30,6 +30,8 @@
     outline: none;
     font-family: var(--font-family);
     font-size: var(--font-size);
+    font-weight: var(--font-weight-light);
+    color: var(--color-very-dark-blue);
 }
 
 html {
@@ -43,10 +45,10 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
-    padding-bottom: var(--footer-height);
+    padding: var(--font-size) 0 var(--footer-height) 0;
 }
 
 /* CONTAINER(S) */
@@ -57,23 +59,89 @@ body {
 .hidden {
     display: none;
 }
+.bold {
+    font-weight: var(--font-weight-bold);
+}
+.debug {
+    border: 2px ridge blue;
+}
+
 
 /* MAIN STYLES */
 .container {
     width: 930px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* MAIN STYLES - CTA */
+section.cta {
+    text-align: center;
+}
 
+.logo {
+    width: 86px;
+    height: 26px;
+    margin: 32px 0;
+}
+
+h1 {
+    font-size: calc(var(--font-size) * 2);
+    color: var(--color-gray);
+    letter-spacing: 3px;
+}
+
+h1 > span {
+    font-size: inherit;
+    color: var(--color-very-dark-blue);
+    letter-spacing: 1px;
+}
+
+h1 + p.cta {
+    margin: 20px 0;
+}
 
 /* MAIN STYLES - SIGNUP */
+
+section.signup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    width: 620px;
+    margin: 20px 0;
+}
+
+label[for=email] {
+    flex: 1 1 auto;
+}
+
+input[name=email] {
+    border: 2px solid rgba(211,211,211,0.5);
+    border-radius: 25px;
+    padding: 12px 18px;
+    width: 100%;
+}
+input[name=email]::placeholder {
+    color: rgba(211,211,211,0.8);
+    font-size: 16px;
+}
+
+.signup button {
+    background: var(--color-blue);
+    border-radius: 25px;
+    color: white;
+    padding: 12px 56px;
+    font-size: 16px;
+}
 
 
 /* MAIN STYLES - DASHBOARD */
 
 .dashboard img {
-    width: 400px;
-    height: 250px;
+    width: 600px;
+    margin: 20px 0;
 }
 
 /* FOOTER STYLES */
@@ -169,7 +237,7 @@ footer img[src$=svg] {
 
 /* ------------- FOR DEBUGGING --------------- */
 
-html {
+/* html {
     border: 5px solid rgba(255, 0, 0, 1);
 }
 body {
@@ -177,7 +245,7 @@ body {
 }
 main {
     border: 8px solid rgba(255, 255, 0, 1);
-}
+} */
 /* .cta {
     border: 5px solid rgba(0, 128, 0, 1);
 }
@@ -186,7 +254,7 @@ main {
 }
 .dashboard {
     border: 5px solid rgba(75, 0, 130, 1);
-} */
+}
 footer {
     border: 8px solid rgba(238, 130, 238, 1);
-}
+}*/
