@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --font-headings: "Poppins", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+    --color-violet: hsl(257, 40%, 49%);
+    --color-soft-magenta: hsl(300, 69%, 71%);
+
+    --desktop-width: 1440px;
+    --desktop-height: 800px;
+    --color-white: #fff;
+    --color-black: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-decoration: none;
+}
+
+html {
+    width: var(--desktop-width);
+    height: var(--desktop-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: calc(var(--desktop-width) - 160px);
+    height: calc(var(--desktop-height) - 72px - 40px);
+    background-color: var(--color-violet);
+    background-image: url("images/bg-desktop.svg");
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "logo logo"
+    "mockup register"
+    "social social";
+    box-sizing: border-box;
+    grid-template-rows: 20% 70% 10%;
+    grid-template-columns: calc(55% - 48px/2) calc(45% - 48/2);
+    column-gap: 48px;
+}
+
+/* AREA - LOGO */
+
+.logo {
+    grid-area: logo;
+}
+
+img[src*=logo] {
+    width: 200px;
+}
+
+/* AREA - MOCKUP */
+
+.mockup {
+    grid-area: mockup;
+}
+
+.mockup img {
+    width: 720px;
+    height: 495px;
+
+}
+
+/* AREA - REGISTER */
+
+.register {
+    grid-area: register;
+}
+
+h1 {
+    color: var(--color-white);
+    font-family: var(--font-headings);
+    font-size: 2.7rem;
+    margin: 0 16px 0 12px;
+    width: 92%;
+}
+
+h1 + p {
+    margin: 28px 0 24px 12px;
+    width: 92%;
+    font-size: 18px;
+    font-family: var(--font-body);
+    color: var(--color-white);
+}
+
+h1 ~ button {
+    background: var(--color-white);
+    padding:15px 60px;
+    border-radius: 60px;
+    color: var(--color-violet);
+    box-shadow: 0 4px 10px var(--color-black);
+    font-family: var(--font-body);
+    font-size: 18px;
+    margin: 0 0 0 12px;
+    transition: all 0.2s ease;
+}
+
+h1 ~ button:hover {
+    cursor: pointer;
+    background: var(--color-soft-magenta);
+    color: var(--color-white);
+    box-shadow: 0 4px 20px var(--color-black);
+}
+
+h1 ~ button:active {
+    transform: translateY(2px);
+}
+
+/* AREA - SOCIAL */
+
+.social {
+    grid-area: social;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 12px;
+
+}
+
+.social svg {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    border: 2px solid var(--color-white);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.social svg:hover {
+    border: 2px solid var(--color-soft-magenta);
+}
+
+.social svg:hover path {
+    fill: var(--color-soft-magenta);
+}
+
+/*  -------------- FOR DEBUGGING -----------------  */
+
+/* html {
+    border: 4px ridge rgba(255, 102, 102, 1);
+}
+body {
+    border: 14px ridge rgba(255, 187, 102, 1);
+}
+.container {
+    border: 14px ridge rgba(255, 255, 102, 1);
+}
+.logo {
+    border: 14px ridge rgba(153, 255, 153, 1);
+}
+.mockup {
+    border: 4px ridge rgba(153, 204, 255, 1);
+}
+.register {
+    border: 4px ridge rgba(153, 153, 255, 1);
+}
+.social {
+    border: 4px ridge rgba(204, 153, 255, 1);
+} */
