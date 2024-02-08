@@ -112,7 +112,7 @@ footer img[src$=svg] {
 /* MEDIA QUERIES */
 
 /* -- larger desktops */
-@media only screen and (max-width: 1440px) {
+@media only screen and ((max-width: 1440px) or (min-width: 1441px)) {
     body::before {
         content: "-- LARGER DESKTOPS --";
         text-shadow: rgba(211,211,211,0.2);
@@ -131,6 +131,9 @@ footer img[src$=svg] {
         content: "-- SMALLER DESKTOPS --";
         /* display: none; */
     }
+    .container {
+        width: 720px;
+    }
 }
 /* -- most tablets */
 @media only screen and (max-width: 768px) {
@@ -138,20 +141,37 @@ footer img[src$=svg] {
         content: "-- MOST TABLETS --";
         /* display: none; */
     }
+    .container {
+        width: 90%;
+    }
+}
+/* most phones */
+@media only screen and (max-width: 480px) {
+    body::before {
+        content: "-- MOST PHONES --";
+        /* display: none; */
+    }
+    .container {
+        width: 100%;
+    }
 }
 /* -- smaller phones */
 @media only screen and (max-width: 375px) {
+    /* THIS PART WIP - does not take up full width */
     body::before {
         content: "-- SMALLER PHONES --";
         /* display: none; */
+    }
+    .container {
+        width: 320px;
     }
 }
 
 /* ------------- FOR DEBUGGING --------------- */
 
-/* html {
+html {
     border: 5px solid rgba(255, 0, 0, 1);
-} */
+}
 body {
     border: 5px solid rgba(255, 165, 0, 1);
 }
