@@ -15,6 +15,7 @@
     --img-bg-desktop: url("./images/bg-intro-desktop.png");
     --img-bg-mobile: url("./images/bg-intro-mobile.png");
     --icon-error: url("./images/icon-error.svg");
+    --icon-success: url("./images/icon-success.svg");
     --slight-borders: calc(16px * 0.4);
 }
 
@@ -114,6 +115,10 @@ form {
     border-radius: var(--slight-borders);
 }
 
+label {
+    position: relative;
+}
+
 form input {
     width: 100%;
     padding: var(--font-size) calc(var(--font-size) * 1.2);
@@ -132,8 +137,81 @@ form input::placeholder {
 form input:focus {
     border: 4px solid var(--color-grayish-blue);
     opacity: 1;
-
 }
+
+/* -->> START BELOW | All Form Input Validation Styling Below */
+
+label[class*="notify-"]::before {
+    content: var(--icon-error);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: var(--font-size);
+}
+
+label.notify-error::before {
+    content: var(--icon-error);
+}
+
+label.notify-success::before {
+    content: var(--icon-success);
+}
+
+label.notify-error::after {
+    content: "";
+    width: 100%;
+    height: 65%;
+    position: absolute;
+    bottom: -65%;
+    right: 0;
+    /* border: 3px solid red; */
+    /* text-align: right; */
+    color: var(--color-red);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 12px;
+    font-style: italic;
+}
+
+/* label:not(.notify-error):not(.notify-success)::after {
+    display: none;
+} */
+
+/* NOTE: Cannot dynamically manipulate/update pseudo element content string from JS */
+label[for="firstname"].field-empty::after {
+    content: "First Name cannot be empty"
+}
+label[for="lastname"].field-empty::after {
+    content: "Last Name cannot be empty"
+}
+label[for="email"].field-empty::after {
+    content: "Email cannot be empty";
+}
+label[for="password"].field-empty::after {
+    content: "Password cannot be empty"
+}
+label[for="email"].field-email-invalid::after {
+    content: "Looks like this is not an email";
+}
+
+label.notify-error input {
+    border: 4px solid var(--color-red);
+    border-radius: var(--slight-borders);
+}
+
+label.notify-success input {
+    border: 4px solid var(--color-green);
+    border-radius: var(--slight-borders);
+}
+
+/* <<-- ENDS ABOVE | All Form Input Validation Styling Above */
+
 
 .btn.inside {
     background: var(--color-green);
