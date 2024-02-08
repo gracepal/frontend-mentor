@@ -16,7 +16,6 @@
     --color-very-dark-blue: hsl(209, 33%, 12%);
 
     --footer-height: 150px;
-
 }
 
 * {
@@ -61,6 +60,7 @@ body {
 
 /* MAIN STYLES */
 .container {
+    width: 930px;
 }
 
 /* MAIN STYLES - CTA */
@@ -111,15 +111,50 @@ footer img[src$=svg] {
 
 /* MEDIA QUERIES */
 
+/* -- larger desktops */
+@media only screen and (max-width: 1440px) {
+    body::before {
+        content: "-- LARGER DESKTOPS --";
+        text-shadow: rgba(211,211,211,0.2);
+        height: 40px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* display: none; */
+    }
+}
+
+/* -- smaller desktops */
+@media only screen and (max-width: 992px) {
+    body::before {
+        content: "-- SMALLER DESKTOPS --";
+        /* display: none; */
+    }
+}
+/* -- most tablets */
+@media only screen and (max-width: 768px) {
+    body::before {
+        content: "-- MOST TABLETS --";
+        /* display: none; */
+    }
+}
+/* -- smaller phones */
+@media only screen and (max-width: 375px) {
+    body::before {
+        content: "-- SMALLER PHONES --";
+        /* display: none; */
+    }
+}
 
 /* ------------- FOR DEBUGGING --------------- */
 
 /* html {
     border: 5px solid rgba(255, 0, 0, 1);
 } */
-/* body {
+body {
     border: 5px solid rgba(255, 165, 0, 1);
-} */
+}
 main {
     border: 8px solid rgba(255, 255, 0, 1);
 }
@@ -132,6 +167,6 @@ main {
 .dashboard {
     border: 5px solid rgba(75, 0, 130, 1);
 } */
-/* footer {
+footer {
     border: 8px solid rgba(238, 130, 238, 1);
-} */
+}
