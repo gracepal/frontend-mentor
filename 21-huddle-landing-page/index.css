@@ -216,7 +216,7 @@ h1 ~ button:active {
         height: 100%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding-top: 40px;
     }
     .container {
@@ -226,7 +226,6 @@ h1 ~ button:active {
         grid-template-rows: 10% 85% 5%;
         grid-template-columns: 34% 64%;
         gap: 2%;
-        box-shadow: 0 5px 10px rgba(211, 211, 211, 0.2);
     }
     .mockup img {
         width: 100%;
@@ -335,15 +334,15 @@ h1 ~ button:active {
 /* Breakpoints: https://www.reddit.com/r/css/comments/v9o6gc/what_is_the_industry_standard_breakpoints_css/ */
 
 /* html {
-    border: 12px ridge rgba(255, 102, 102, 1);
+    border: 2px ridge rgba(255, 102, 102, 1);
 }
 body {
     border: 2px ridge rgba(255, 187, 102, 1);
 }
 .container {
-    border: 12px ridge rgba(255, 255, 102, 1);
-} */
-/* .logo {
+    border: 2px ridge rgba(255, 255, 102, 1);
+}
+.logo {
     border: 2px ridge rgba(153, 255, 153, 1);
 }
 .mockup {
@@ -354,7 +353,7 @@ body {
 }
 .social {
     border: 2px ridge rgba(204, 153, 255, 1);
-} */
+}
 
 /*  -------------- FOR DEBUGGING - BREAKPOINTS -----------------  */
 /* @media only screen and (width: 1440px) {
