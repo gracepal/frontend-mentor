@@ -41,4 +41,4 @@ Grid Tool - https://www.photomultitool.com/grid/editor?2
 ### Links
 
 - Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/21-huddle-landing-page
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://taupe-kataifi-c21711.netlify.app/
