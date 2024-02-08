@@ -47,6 +47,12 @@ body {
     align-items: center;
 }
 
+a,
+a:active,
+a:visited {
+    color: inherit;
+}
+
 
 /******************/
 /* MAIN CONTAINER */

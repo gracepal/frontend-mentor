@@ -70,3 +70,8 @@ allInputEls.forEach((inputEl) => {
     removeAllFieldStyling()
   })
 })
+
+// Also reset styling on any click, to also handle link clicks
+document.addEventListener('click', function () {
+  removeAllFieldStyling()
+})
