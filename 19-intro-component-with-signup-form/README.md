@@ -35,6 +35,10 @@ Users should be able to:
 
 <img src="https://github.com/gracepal/frontend-mentor/assets/131278381/09862629-9efa-4244-aac4-e929297cb914" width="300" alt="intro-component-with-signup-form-mobile">
 
+### Mobile with Errors
+
+<img src="https://github.com/gracepal/frontend-mentor/assets/131278381/66995090-247a-42c0-a35b-e364f577e088" alt="intro-component-with-signup-form-mobile-with-errors" width="300">
+
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
