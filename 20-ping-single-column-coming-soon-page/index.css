@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --font-family: 'Libre Franklin', sans-serif;
@@ -51,9 +51,6 @@ body {
     padding: var(--font-size) 0 var(--footer-height) 0;
 }
 
-/* CONTAINER(S) */
-
-
 
 /* SHARED STYLES */
 .hidden {
@@ -90,6 +87,7 @@ h1 {
     font-size: calc(var(--font-size) * 2);
     color: var(--color-gray);
     letter-spacing: 3px;
+    font-weight: 100;
 }
 
 h1 > span {
@@ -134,8 +132,20 @@ input[name=email]::placeholder {
     color: white;
     padding: 12px 56px;
     font-size: 16px;
+    box-shadow: -3px 3px 10px hsl(223, 100%, 88%);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
 }
 
+.signup button:hover {
+    cursor: pointer;
+    filter: brightness(130%);
+    box-shadow: -3px 3px 8px hsl(223, 100%, 78%);
+}
+
+.signup button:active {
+    transform: translate(-2px, 2px);
+    box-shadow: -2px 2px 6px hsl(223, 100%, 68%);
+}
 
 /* MAIN STYLES - DASHBOARD */
 
@@ -164,13 +174,26 @@ footer {
     justify-content: center;
     gap: calc(var(--font-size) * 0.5)
 }
-footer img[src$=svg] {
+.social-links a {
+    height: 32px;
+}
+a:hover {
+    background-color: var(--color-blue);
+    border-radius: 50%;
+}
+footer svg {
     width: 32px;
     height: 32px;
     border: 1px solid rgba(211, 211, 211, 0.5);
-    color: var(--color-pale-blue);
     border-radius: 50%;
     padding: 8px;
+}
+footer svg path {
+    fill: var(--color-blue);
+}
+footer a:has(>svg):hover path {
+    fill: white;
+    background-color: var(--color-blue);
 }
 .copyright {
     font-size: calc(var(--font-size) * 0.75);
