@@ -16,3 +16,39 @@
     --color-very-dark-blue: hsl(209, 33%, 12%);
 
 }
+
+
+/* CONTAINER(S) */
+
+
+/* SHARED STYLES */
+.hidden {
+    display: none;
+}
+
+
+/* MAIN STYLES */
+
+
+/* MAIN STYLES - CTA */
+
+
+/* MAIN STYLES - SIGNUP */
+
+
+/* MAIN STYLES - DASHBOARD */
+
+.dashboard img {
+    width: 400px;
+    height: 250px;
+}
+
+/* FOOTER STYLES */
+footer img[src$=svg] {
+    width: 25px;
+    height: 25px;
+}
+
+
+
+/* MEDIA QUERIES */
