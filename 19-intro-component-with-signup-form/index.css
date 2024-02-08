@@ -51,6 +51,7 @@ a,
 a:active,
 a:visited {
     color: inherit;
+    font-size: inherit;
 }
 
 

@@ -54,7 +54,7 @@ formEl.addEventListener('submit', function (e) {
     const currFormGap = getDigits(window.getComputedStyle(formEl).gap)
     const newMarginBottom = currLabelMarginBottom == 0 ? currLabelMarginBottom + currFormGap + currLabelHeightHalf : 0
 
-    if (k == 'email' && !isValidEmail(inputVal)) {
+    if (k == 'email' && inputVal.length > 0 && !isValidEmail(inputVal)) {
       applyFieldStyling(labelEl, ['notify-error', 'field-email-invalid'], newMarginBottom)
     } else if (inputVal == '') {
       applyFieldStyling(labelEl, ['notify-error', 'field-empty'], newMarginBottom)
