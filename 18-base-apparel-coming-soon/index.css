@@ -155,8 +155,8 @@ form.valid::after {
     align-items: center;
 }
 form.invalid::after {
-    content: "❕";
-    background: var(--color-error);
+    content: "";
+    background: url("./images/icon-error.svg") no-repeat;
 }
 
 form.valid::after {
