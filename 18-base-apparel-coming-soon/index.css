@@ -139,7 +139,22 @@ input:focus::placeholder {
 input.invalid {
     border: 2px ridge var(--color-error);
 }
-form.invalid::after,
+/* form.invalid::after, */
+form.invalid::after {
+    content: "";
+    z-index: 100;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: 12px;
+    right: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* form.invalid::after, */
 form.valid::after {
     content: "";
     z-index: 100;
@@ -155,8 +170,17 @@ form.valid::after {
     align-items: center;
 }
 form.invalid::after {
+<<<<<<< Updated upstream
     content: "";
     background: url("./images/icon-error.svg") no-repeat;
+=======
+    /* content: "❕";
+    background: var(--color-error); */
+
+    content: "";
+    background: url("images/icon-error.svg") no-repeat;
+    border: 2px solid green;
+>>>>>>> Stashed changes
 }
 
 form.valid::after {
