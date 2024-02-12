@@ -16,7 +16,7 @@ This is a solution to the [Newsletter sign-up form with success message challeng
 Users should be able to:
 
 - ✅ Add their email and submit the form
-- ⏳ See a success message with their email after successfully submitting the form
+- ✅ See a success message with their email after successfully submitting the form
 - ✅ See form validation messages if:
   - ✅ The field is left empty
   - ✅ The email address is not formatted correctly
@@ -48,5 +48,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/22-newsletter-sign-up-form-with-success-message
+- Live Site URL: https://tubular-kelpie-bf7b38.netlify.app/
