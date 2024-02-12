@@ -27,6 +27,15 @@
     font-size: var(--font-size);
 }
 
+.hidden {
+    display: none !important;
+}
+
+.bold {
+    font-weight: var(--font-weight-bold);
+    font-size: inherit;
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -47,7 +56,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .card {
@@ -131,7 +139,7 @@ button {
     box-shadow: 0 5px 10px rgba(211,211,211,1);
     margin: 16px 0;
     width: 100%;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 button:hover {
@@ -164,6 +172,44 @@ button:active {
 .content:has(button:hover) + .image {
     /* border-radius: 0; */
 }
+
+/* ---------------------
+   Card Section - Success
+ ---------------------- */
+
+    .card.success {
+        width: 380px;
+        height: 400px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 35px 45px;
+        border-radius: 25px;
+    }
+
+    .card.success h1 {
+        /* border: 5px solid purple; */
+        letter-spacing: 1px;
+        line-height: 34px;
+    }
+
+    .card.success h1 img {
+        display: block;
+        width: 48px;
+        margin-bottom: 36px;
+    }
+
+    .card.success p {
+        color: var(--color-grey);
+        font-size: calc(var(--font-size) * 0.8);
+        margin: 13px 0;
+        /* border: 12px solid pink; */
+    }
+
+    .card.success button {
+        border-radius: 8px;
+    }
 
 
 /* --------------
@@ -206,9 +252,9 @@ button:active {
 
 
  /* --- FOR DEBUGGING ---- */
- /* html { border: 2px solid blue; }
- body { border: 2px solid green; }
- .container { border: 2px solid yellow; }
- .card { border: 2px solid pink; }
- .content { border: 2px solid saddlebrown; }
- .image { border: 2px solid red; } */
+ /* html { border: 8px solid blue; }
+ body { border: 8px solid green; }
+ .container { border: 8px solid yellow; }
+ .card { border: 8px solid pink; }
+ .content { border: 8px solid saddlebrown; }
+ .image { border: 8px solid red; } */
