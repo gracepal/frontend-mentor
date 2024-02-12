@@ -5,6 +5,7 @@ const dismissBtnEl = document.querySelector('.success button')
 const emailForm = document.querySelector('form.email')
 const emailLabel = document.querySelector('label')
 const emailInput = document.querySelector('input')
+const userEmailEl = document.querySelector('.success .bold')
 
 function isValidEmail(email) {
   // Source: https://stackoverflow.com/a/46181
@@ -25,6 +26,7 @@ emailForm.addEventListener('submit', function (e) {
   if (emailVal.length > 0 && isValidEmail(emailVal)) {
     signupCard.classList.add('hidden')
     successCard.classList.remove('hidden')
+    userEmailEl.textContent = emailVal
     dismissBtnEl.focus()
   } else {
     emailLabel.classList.add('invalid')
