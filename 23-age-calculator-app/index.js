@@ -3,6 +3,15 @@ const calculateBtnEl = document.querySelector('.calculate')
 const yearsDisplayEl = document.querySelector('.outputs .years .value')
 const monthsDisplayEl = document.querySelector('.outputs .months .value')
 const daysDisplayEl = document.querySelector('.outputs .days .value')
+const LOG_LEVEL = 'DEBUG' // INFO, DEBUG, NONE
+
+function addLog(message, logLevel, addMark) {
+  logLevel = logLevel ?? LOG_LEVEL
+  addMark = addMark ?? false
+  if (logLevel.toUpperCase() == LOG_LEVEL.toUpperCase()) {
+    console.log(`${logLevel.toUpperCase()}: ${message} ${addMark ? '--- ATTN!!! ---' : ''}`)
+  }
+}
 
 function resetStyles() {
   yearsDisplayEl.textContent = '- -'
@@ -121,72 +130,69 @@ function isValidDate(day, month, year) {
   return dayMatches && monthMatches && yearMatches
 }
 
-function getTotalYears(inputDate, todayDate) {
-  let totalYears = todayDate.getFullYear() - inputDate.getFullYear()
-  let diffMonths = todayDate.getMonth() - inputDate.getMonth()
-  let diffDays = todayDate.getDate() - inputDate.getDate()
-  // 1 year younger if birth month hasn't past
-  if (diffMonths < 0) totalYears--
-  // 1 year younger if on birth month but date hasn't reached
-  else if (diffMonths == 0 && diffDays < 0) totalYears--
-  return totalYears
-}
-
-function getTotalMonths(inputDate, todayDate) {
-  // given today=aug, input=sep
-  // calc 8-0=8 + 12-9=3, 8+3=11
-  const todayMonth = todayDate.getMonth() + 1 // 0-indexed
-  const inputMonth = inputDate.getMonth() + 1
-  const monthsThisYear = todayMonth - 0
-  const monthsLastYear = 12 - inputMonth
-
-  return (monthsThisYear + monthsLastYear) % 12
-}
-
-function getTotalDays(inputDate, todayDate) {
-  const totalDaysPerMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  const currMonth = todayDate.getMonth() + 1
-  const prevMonth = currMonth == 1 ? 12 : currMonth - 1
-
-  // actually only today's date matters, as any # > 1 month is added to months
-  if ([2, 3].includes(currMonth)) {
-    // only if month is relevant
-    if (isLeapYear(todayDate.getFullYear())) {
-      // only if leap year
-      totalDaysPerMonth[2]++ // add leap day
-    }
-  }
-
-  // handle feb 28,29 separately
-  if (todayDate.getMonth() + 1 == 2 && [28, 29].includes(todayDate.getDate())) {
-    return todayDate.getDate()
-  }
-
-  if (todayDate.getDate() >= inputDate.getDate()) {
-    return todayDate.getDate() - inputDate.getDate()
+function calculateOutputs(birthdate, todayDate) {
+  // select closest months start, from birthdate-next month 1st, from today-prev month 1st
+  // count years by divide-ing months count by 12
+  // count months by modulo-ing months after counting years
+  // count days by the logic
+  //   a) if days are the same, then add +1 month, return 0 days
+  //   b) if today-day > birthdate-day, then return difference today - birthdate days
+  //   c) if today-day < birthdate-day, then return sum of birthdate-to-end + today-to-beg
+  const today = todayDate ?? getDate()
+  let beforeToday
+  let afterBirthdate
+  // -- get the closest preceding month of today
+  if (today.getMonth() == 0) {
+    // 0-indexed, so "0" is checking if january
+    // set next closest month to today, normalized to the 1st
+    beforeToday = new Date(today.getFullYear() - 1, 11, 1)
   } else {
-    const currMonthDays = todayDate.getDate() - 0
-    const prevMonthDays = totalDaysPerMonth[prevMonth] - inputDate.getDate()
-    console.log('currMonthDays', currMonthDays)
-    console.log('prevMonthDays', prevMonthDays)
-    console.log('combined', currMonthDays + prevMonthDays)
-    console.log('===', totalDaysPerMonth[prevMonth], inputDate.getDate())
-    return currMonthDays + prevMonthDays
+    beforeToday = new Date(today.getFullYear(), today.getMonth() - 1, 1)
   }
-}
+  // -- get the closest next month from birth day
+  if (birthdate.getMonth() == 11) {
+    // 0-indexed, so "11" is checking if december
+    // set prev closest month to birthdate, also normalized
+    afterBirthdate = new Date(birthdate.getFullYear() + 1, 0, 1)
+  } else {
+    afterBirthdate = new Date(birthdate.getFullYear(), birthdate.getMonth() + 1, 1)
+  }
+  addLog(`birthdate ${birthdate.toLocaleDateString()}, after ${afterBirthdate.toLocaleDateString()}`, 'debug')
+  addLog(`today ${today.toLocaleDateString()}, before ${beforeToday.toLocaleDateString()}`, 'debug')
+  let totalYears = afterBirthdate.getFullYear() == beforeToday.getFullYear() ? 0 : beforeToday.getFullYear() - afterBirthdate.getFullYear() - 1
 
-function calculateOutputs(day, month, year, today) {
-  const todayDate = today ?? getDate()
-  const inputDate = getDate(day, month, year)
+  addLog(`total years ${totalYears}`, 'DEBUG', true)
+  debugger
 
-  let totalYears = getTotalYears(inputDate, todayDate)
-  let totalMonths = getTotalMonths(inputDate, todayDate)
-  let totalDays = getTotalDays(inputDate, todayDate)
+  let totalMonths = 12 - afterBirthdate.getMonth() + totalYears * 12 + (beforeToday.getMonth() + 1)
+  let totalDays
+  addLog(`BEFORE calc, totalYears=${totalYears} totalMonths=${totalMonths} totalDays=${totalDays || 'tbd'}`)
+  if (birthdate.getDate() == today.getDate()) {
+    // same day
+    totalMonths += 1
+    totalDays = 0
+    totalYears = totalMonths / 12
+    totalMonths = totalMonths % 12
+  } else if (birthdate.getDate() < today.getDate()) {
+    // birthday-day before today-day
+    totalMonths += 1
+    totalYears = totalMonths / 12
+    totalMonths = totalMonths % 12
+    totalDays = today.getDate() - birthdate.getDate()
+  } else {
+    // birthday-day after today-day
+    totalYears = totalMonths / 12
+    totalMonths = totalMonths % 12
+    // calculate last day of birth month by taking next month and grabbing 0th day -> which is previous month day
+    const lastDay = new Date(birthdate.getFullYear(), afterBirthdate.getMonth(), 0).getDate()
+    totalDays = lastDay - birthdate.getDate() + today.getDate()
+  }
 
+  totalYears = Math.floor(totalYears)
   return { days: totalDays, months: totalMonths, years: totalYears }
 }
 
-function renderOutputs(days, months, years) {
+function renderOutputs({ days, months, years }) {
   yearsDisplayEl.textContent = years
   monthsDisplayEl.textContent = months
   daysDisplayEl.textContent = days
@@ -209,8 +215,9 @@ formEl.addEventListener('submit', function (e) {
   const doCalculate = validDay && validMonth && validYear && validDate
 
   if (doCalculate) {
-    const { days, months, years } = calculateOutputs(dayInputStr, monthInputStr, yearInputStr)
-    renderOutputs(days, months, years)
+    const birthdate = getDate(dayInputStr, monthInputStr, yearInputStr)
+    const calculatedData = calculateOutputs(birthdate)
+    renderOutputs(calculatedData)
   }
 })
 
@@ -222,9 +229,31 @@ resetStyles()
  *
  * new Date(year, monthIndex, day)
  */
+let count = 1
+function isMatching(actual, expected) {
+  return JSON.stringify(actual) == JSON.stringify(expected)
+}
+function runTest(testBirthdate, testToday, scenario, expected) {
+  const testOutcome = calculateOutputs(testBirthdate, testToday)
+  let matching = isMatching(testOutcome, expected)
+  console.log(`Scenario: ${scenario} ${matching ? '✅' : '❌'}`)
+  console.log(`Birthdate: ${testBirthdate.toLocaleDateString()}`)
+  console.log(`Today: ${testToday.toLocaleDateString()}`)
+  console.log(`Actual: ${JSON.stringify(testOutcome)}`)
+  if (!matching) {
+    console.log(`Expected: ${JSON.stringify(expected)}`)
+  }
+  console.log(`-------------------------- ${count}`)
+  count++
+}
 console.log('**************************')
-
-let { days, months, years } = calculateOutputs('2', '18', '2023', new Date(2024, 2 - 1, 18))
-console.log(days, months, years)
+// runTest(getDate(19, 2, 2020), getDate(19, 2, 2024), 'Same day', { days: 0, months: 0, years: 4 })
+// runTest(getDate(19, 2, 2023), getDate(19, 2, 2024), '1 year less', { days: 0, months: 0, years: 1 })
+// runTest(getDate(18, 2, 2023), getDate(19, 2, 2024), '1 day less', { days: 1, months: 0, years: 1 })
+// runTest(getDate(20, 2, 2023), getDate(19, 2, 2024), '1 day more', { days: 27, months: 11, years: 0 })
+// runTest(getDate(27, 2, 2020), getDate(2, 3, 2024), 'leap year', { days: 4, months: 0, years: 4 })
+// runTest(getDate(30, 12, 2023), getDate(30, 1, 2024), '1 month less', { days: 0, months: 1, years: 0 })
+runTest(getDate(30, 12, 2022), getDate(30, 1, 2024), '1 month more', { days: 0, months: 1, years: 1 })
+// runTest(getDate(31, 12, 2020), getDate(19, 2, 2024), 'test', { days: 19, months: 1, years: 3 })
 
 console.log('**************************')
