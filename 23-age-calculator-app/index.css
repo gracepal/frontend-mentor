@@ -41,7 +41,7 @@ html, body {
     height: 475px;
 }
 
-.card {
+main {
     width: 100%;
     height: 100%;
     border-radius: 15px 15px 135px 15px;
@@ -66,6 +66,7 @@ html, body {
     display: flex;
     flex-direction: row;
     gap: 22px;
+    position: relative;
 }
 
 .inputs::after:hover {
@@ -137,19 +138,15 @@ p.error::first-letter {
     text-transform: uppercase;
 }
 
-/* ----- DIVIDER ----- */
+/* ----- CALCULATE BUTTON ----- */
 
-.divider {
-    width: 100%;
-    position: relative;
-}
 
 .calculate {
     background-color: var(--color-purple);
     width: 78px;
     height: 78px;
     position: absolute;
-    top: calc(78px / 2 * -1);
+    bottom: calc(78px / 2 * -1);
     right: 0;
     border-radius: 50%;
     display: flex;
@@ -213,7 +210,6 @@ p.error::first-letter {
 /* html { border: 6px solid purple; }
 body { border: 6px solid green; } */
 /* .container { border: 6px solid blue; } */
-/* .card { border: 6px solid magenta; }
-.inputs { border: 2px solid yellow; }*/
-/* .divider { border: 5px solid gray; } */
+/* .card { border: 6px solid magenta; } */
+/* .inputs { border: 2px solid yellow; } */
 /* .outputs { border: 2px solid orange; } */

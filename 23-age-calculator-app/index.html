@@ -16,32 +16,30 @@
 
   <div class="container">
     <main class="card">
-      <div class="inputs">
-        <label for="day" class="error">day
-          <input type="text" name="day" id="day" placeholder="DD">
-          <p class="error">must be a valid date</p>
+      <form class="inputs">
+        <label for="day">day
+          <input type="text" name="day" id="day" placeholder="DD" value="18">
+          <p class="error"></p>
         </label>
         <label for="month">month
-          <input type="text" name="month" id="month" placeholder="MM">
-          <p class="error">This field is required</p>
+          <input type="text" name="month" id="month" placeholder="MM" value="2">
+          <p class="error"></p>
         </label>
         <label for="year">year
-          <input type="text" name="year" id="year" placeholder="YYYY">
-          <p class="error">Must be in the past</p>
+          <input type="text" name="year" id="year" placeholder="YYYY" value="2023">
+          <p class="error"></p>
         </label>
-      </div>
-      <div class="divider">
-        <button class="btn calculate">
+        <button class="btn calculate" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
             <g fill="none" stroke="#FFF" stroke-width="2">
               <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
             </g>
           </svg>
         </button>
-      </div>
+      </form>
       <div class="outputs">
-        <div class="years"><span class="value">38</span> years</div>
-        <div class="months"><span class="value">3</span> months</div>
+        <div class="years"><span class="value"></span> years</div>
+        <div class="months"><span class="value"></span> months</div>
         <div class="days"><span class="value">- -</span> days</div>
       </div>
     </main>
