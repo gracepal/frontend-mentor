@@ -130,65 +130,78 @@ function isValidDate(day, month, year) {
   return dayMatches && monthMatches && yearMatches
 }
 
+/**
+ * Calculate the total years, months, and days between input birthday and today
+ * @param {Date} birthdate - Input birthday as Date() object
+ * @param {Date} todayDate - "Today" as Date() object, this may be defaulted to today
+ *  if none is explicitly passed in, else user may pass in test values
+ * @returns dictionary of { days: totalDays, months: totalMonths, years: totalYears }
+ *
+ *      |------------------------------|
+ *    birth                          today
+ *
+ * totalYears: difference in years, decremented if same year and birth month < today month
+ * totalMonths:
+ * totalDays:
+ */
 function calculateOutputs(birthdate, todayDate) {
-  // select closest months start, from birthdate-next month 1st, from today-prev month 1st
-  // count years by divide-ing months count by 12
-  // count months by modulo-ing months after counting years
-  // count days by the logic
-  //   a) if days are the same, then add +1 month, return 0 days
-  //   b) if today-day > birthdate-day, then return difference today - birthdate days
-  //   c) if today-day < birthdate-day, then return sum of birthdate-to-end + today-to-beg
-  const today = todayDate ?? getDate()
-  let beforeToday
-  let afterBirthdate
-  // -- get the closest preceding month of today
-  if (today.getMonth() == 0) {
-    // 0-indexed, so "0" is checking if january
-    // set next closest month to today, normalized to the 1st
-    beforeToday = new Date(today.getFullYear() - 1, 11, 1)
-  } else {
-    beforeToday = new Date(today.getFullYear(), today.getMonth() - 1, 1)
-  }
-  // -- get the closest next month from birth day
-  if (birthdate.getMonth() == 11) {
-    // 0-indexed, so "11" is checking if december
-    // set prev closest month to birthdate, also normalized
-    afterBirthdate = new Date(birthdate.getFullYear() + 1, 0, 1)
-  } else {
-    afterBirthdate = new Date(birthdate.getFullYear(), birthdate.getMonth() + 1, 1)
-  }
-  addLog(`birthdate ${birthdate.toLocaleDateString()}, after ${afterBirthdate.toLocaleDateString()}`, 'debug')
-  addLog(`today ${today.toLocaleDateString()}, before ${beforeToday.toLocaleDateString()}`, 'debug')
-  let totalYears = afterBirthdate.getFullYear() == beforeToday.getFullYear() ? 0 : beforeToday.getFullYear() - afterBirthdate.getFullYear() - 1
+  const basedate = todayDate ?? getDate()
 
-  addLog(`total years ${totalYears}`, 'DEBUG', true)
-  debugger
+  // Strip the input dates of days, normalize to 1st of each month
+  const basedateNorm = new Date(basedate.getFullYear(), basedate.getMonth(), 1)
+  const birthdateNorm = new Date(birthdate.getFullYear(), birthdate.getMonth(), 1)
 
-  let totalMonths = 12 - afterBirthdate.getMonth() + totalYears * 12 + (beforeToday.getMonth() + 1)
+  // Calculate number of full years in between
+  let totalYears = basedateNorm.getFullYear() - birthdateNorm.getFullYear()
+  const currMonthBeforeBirthMonth = basedateNorm.getMonth() < birthdateNorm.getMonth()
+  const currDayBeforeBirthDay = basedateNorm.getMonth() < birthdateNorm.getMonth() && basedateNorm.getDate() < birthdateNorm.getDate()
+  if (currMonthBeforeBirthMonth || currDayBeforeBirthDay) {
+    totalYears -= 1
+  }
+
+  // Calculate number of full months in between, excluding full years
+  let totalMonths
+  if (basedate.getMonth() == birthdate.getMonth()) {
+    totalMonths = 0
+  }
+  // let totalMonths = basedateNorm.getMonth() - birthdateNorm.getMonth()
+  // if (totalMonths < 0) {
+  //   totalMonths = 11 - birthdateNorm.getMonth() + basedateNorm.getMonth() + 1
+  // }
+
+  // Calculate number of days in between, excluding full years and full months
   let totalDays
-  addLog(`BEFORE calc, totalYears=${totalYears} totalMonths=${totalMonths} totalDays=${totalDays || 'tbd'}`)
-  if (birthdate.getDate() == today.getDate()) {
-    // same day
-    totalMonths += 1
+  // -- simple if current base date is same as birth date day, simply add +month and set days=0
+  if (basedate.getDate() == birthdate.getDate()) {
     totalDays = 0
-    totalYears = totalMonths / 12
-    totalMonths = totalMonths % 12
-  } else if (birthdate.getDate() < today.getDate()) {
-    // birthday-day before today-day
-    totalMonths += 1
-    totalYears = totalMonths / 12
-    totalMonths = totalMonths % 12
-    totalDays = today.getDate() - birthdate.getDate()
-  } else {
-    // birthday-day after today-day
-    totalYears = totalMonths / 12
-    totalMonths = totalMonths % 12
-    // calculate last day of birth month by taking next month and grabbing 0th day -> which is previous month day
-    const lastDay = new Date(birthdate.getFullYear(), afterBirthdate.getMonth(), 0).getDate()
-    totalDays = lastDay - birthdate.getDate() + today.getDate()
+  }
+  // -- simple if current base date is after birth date, simply subtract the difference
+  else if (basedateNorm.getDate() > birthdateNorm.getDate()) {
+    totalDays = birthdateNorm.getDate() - basedateNorm.getDate()
+  }
+  // -- otherwise sum the total days to the end of prev month and total days in current month
+  else {
+    // Use Date(year, month, day) where if day==0, then it returns the day of the preceding month
+    const lastDayObj = new Date(basedateNorm.getFullYear(), basedateNorm.getMonth(), 0)
+    const lastDay = lastDayObj.getDate()
+    const prevMonthDays = lastDay - birthdate.getDate()
+    const currMonthDays = basedate.getDate()
+    totalDays = prevMonthDays + currMonthDays
+
+    // also make sure to decrement 1 month
+    totalMonths -= 1
+    if (totalMonths < 0) {
+      totalYears -= 1
+      totalMonths = 11
+    }
   }
 
-  totalYears = Math.floor(totalYears)
+  console.log('1) Test base date', basedate.toLocaleDateString())
+  console.log('2) Test birth date', birthdate.toLocaleDateString())
+  console.log('3) totalYears', totalYears)
+  console.log('4) totalMonths', totalMonths)
+  console.log('5) totalDays', totalDays)
+
   return { days: totalDays, months: totalMonths, years: totalYears }
 }
 
@@ -249,11 +262,11 @@ function runTest(testBirthdate, testToday, scenario, expected) {
 console.log('**************************')
 // runTest(getDate(19, 2, 2020), getDate(19, 2, 2024), 'Same day', { days: 0, months: 0, years: 4 })
 // runTest(getDate(19, 2, 2023), getDate(19, 2, 2024), '1 year less', { days: 0, months: 0, years: 1 })
-// runTest(getDate(18, 2, 2023), getDate(19, 2, 2024), '1 day less', { days: 1, months: 0, years: 1 })
+runTest(getDate(18, 2, 2023), getDate(19, 2, 2024), '1 day less', { days: 1, months: 0, years: 1 })
 // runTest(getDate(20, 2, 2023), getDate(19, 2, 2024), '1 day more', { days: 27, months: 11, years: 0 })
 // runTest(getDate(27, 2, 2020), getDate(2, 3, 2024), 'leap year', { days: 4, months: 0, years: 4 })
 // runTest(getDate(30, 12, 2023), getDate(30, 1, 2024), '1 month less', { days: 0, months: 1, years: 0 })
-runTest(getDate(30, 12, 2022), getDate(30, 1, 2024), '1 month more', { days: 0, months: 1, years: 1 })
+// runTest(getDate(30, 12, 2022), getDate(30, 1, 2024), '1 month more', { days: 0, months: 1, years: 1 })
 // runTest(getDate(31, 12, 2020), getDate(19, 2, 2024), 'test', { days: 19, months: 1, years: 3 })
 
 console.log('**************************')
