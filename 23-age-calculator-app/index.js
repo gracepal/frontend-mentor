@@ -144,60 +144,40 @@ function isValidDate(day, month, year) {
  * totalMonths:
  * totalDays:
  */
-function calculateOutputs(birthdate, todayDate) {
-  const basedate = todayDate ?? getDate()
+function calculateOutputs(userDate, todayDate) {
+  const currDate = todayDate ?? getDate()
 
-  // Strip the input dates of days, normalize to 1st of each month
-  const basedateNorm = new Date(basedate.getFullYear(), basedate.getMonth(), 1)
-  const birthdateNorm = new Date(birthdate.getFullYear(), birthdate.getMonth(), 1)
-
-  // Calculate number of full years in between
-  let totalYears = basedateNorm.getFullYear() - birthdateNorm.getFullYear()
-  const currMonthBeforeBirthMonth = basedateNorm.getMonth() < birthdateNorm.getMonth()
-  const currDayBeforeBirthDay = basedateNorm.getMonth() < birthdateNorm.getMonth() && basedateNorm.getDate() < birthdateNorm.getDate()
-  if (currMonthBeforeBirthMonth || currDayBeforeBirthDay) {
-    totalYears -= 1
+  // Find years and months
+  let totalMonths = (currDate.getFullYear() - userDate.getFullYear()) * 12
+  if (currDate.getMonth() > userDate.getMonth()) {
+    totalMonths += currDate.getMonth() - userDate.getMonth()
+  } else if (currDate.getMonth() < userDate.getMonth()) {
+    let spanningMonths = 12 - 1 - userDate.getMonth() + (currDate.getMonth() + 1) // NOTE: months are 0-indexed!
+    let subtractMonths = 12 - spanningMonths
+    totalMonths -= subtractMonths
   }
-
-  // Calculate number of full months in between, excluding full years
-  let totalMonths
-  if (basedate.getMonth() == birthdate.getMonth()) {
-    totalMonths = 0
-  }
-  // let totalMonths = basedateNorm.getMonth() - birthdateNorm.getMonth()
-  // if (totalMonths < 0) {
-  //   totalMonths = 11 - birthdateNorm.getMonth() + basedateNorm.getMonth() + 1
-  // }
-
-  // Calculate number of days in between, excluding full years and full months
+  // Find days
+  // if userDate is 3-3-2020 and currDate is 5-1-2024 month-day-year
+  // then count the days from 4-3-2024 -> from the userDate's day, but in the month preceding currDate
+  // from Date(year, monthZeroIndexed, 0) <= the "0" day means previous month day
   let totalDays
-  // -- simple if current base date is same as birth date day, simply add +month and set days=0
-  if (basedate.getDate() == birthdate.getDate()) {
+  if (currDate.getDate() > userDate.getDate()) {
+    totalDays = currDate.getDate() - userDate.getDate()
+  } else if (currDate.getDate() == userDate.getDate()) {
     totalDays = 0
-  }
-  // -- simple if current base date is after birth date, simply subtract the difference
-  else if (basedateNorm.getDate() > birthdateNorm.getDate()) {
-    totalDays = birthdateNorm.getDate() - basedateNorm.getDate()
-  }
-  // -- otherwise sum the total days to the end of prev month and total days in current month
-  else {
-    // Use Date(year, month, day) where if day==0, then it returns the day of the preceding month
-    const lastDayObj = new Date(basedateNorm.getFullYear(), basedateNorm.getMonth(), 0)
-    const lastDay = lastDayObj.getDate()
-    const prevMonthDays = lastDay - birthdate.getDate()
-    const currMonthDays = basedate.getDate()
-    totalDays = prevMonthDays + currMonthDays
-
-    // also make sure to decrement 1 month
+  } else {
+    let lastDayDate = new Date(currDate.getFullYear(), currDate.getMonth(), 0)
+    let lastDayDay = lastDayDate.getDate()
+    let daysFromUser = lastDayDay - userDate.getDate()
+    let daysToCurr = currDate.getDate()
+    totalDays = daysFromUser + daysToCurr
     totalMonths -= 1
-    if (totalMonths < 0) {
-      totalYears -= 1
-      totalMonths = 11
-    }
   }
+  let totalYears = Math.floor(totalMonths / 12)
+  totalMonths = totalMonths % 12
 
-  console.log('1) Test base date', basedate.toLocaleDateString())
-  console.log('2) Test birth date', birthdate.toLocaleDateString())
+  console.log('1) Test curr date', currDate.toLocaleDateString())
+  console.log('2) Test birth date', userDate.toLocaleDateString())
   console.log('3) totalYears', totalYears)
   console.log('4) totalMonths', totalMonths)
   console.log('5) totalDays', totalDays)
@@ -260,13 +240,13 @@ function runTest(testBirthdate, testToday, scenario, expected) {
   count++
 }
 console.log('**************************')
-// runTest(getDate(19, 2, 2020), getDate(19, 2, 2024), 'Same day', { days: 0, months: 0, years: 4 })
-// runTest(getDate(19, 2, 2023), getDate(19, 2, 2024), '1 year less', { days: 0, months: 0, years: 1 })
+runTest(getDate(19, 2, 2020), getDate(19, 2, 2024), 'Same day', { days: 0, months: 0, years: 4 })
+runTest(getDate(19, 2, 2023), getDate(19, 2, 2024), '1 year less', { days: 0, months: 0, years: 1 })
 runTest(getDate(18, 2, 2023), getDate(19, 2, 2024), '1 day less', { days: 1, months: 0, years: 1 })
-// runTest(getDate(20, 2, 2023), getDate(19, 2, 2024), '1 day more', { days: 27, months: 11, years: 0 })
-// runTest(getDate(27, 2, 2020), getDate(2, 3, 2024), 'leap year', { days: 4, months: 0, years: 4 })
-// runTest(getDate(30, 12, 2023), getDate(30, 1, 2024), '1 month less', { days: 0, months: 1, years: 0 })
-// runTest(getDate(30, 12, 2022), getDate(30, 1, 2024), '1 month more', { days: 0, months: 1, years: 1 })
-// runTest(getDate(31, 12, 2020), getDate(19, 2, 2024), 'test', { days: 19, months: 1, years: 3 })
+runTest(getDate(20, 2, 2023), getDate(19, 2, 2024), '1 day more', { days: 27, months: 11, years: 0 })
+runTest(getDate(27, 2, 2020), getDate(2, 3, 2024), 'leap year', { days: 4, months: 0, years: 4 })
+runTest(getDate(30, 12, 2023), getDate(30, 1, 2024), '1 month less', { days: 0, months: 1, years: 0 })
+runTest(getDate(30, 12, 2022), getDate(30, 1, 2024), '1 month more', { days: 0, months: 1, years: 1 })
+runTest(getDate(31, 12, 2020), getDate(19, 2, 2024), 'test', { days: 19, months: 1, years: 3 })
 
 console.log('**************************')
