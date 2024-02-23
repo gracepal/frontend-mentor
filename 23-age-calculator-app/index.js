@@ -1,9 +1,11 @@
 const formEl = document.querySelector('form')
+const firstInputLabelEl = document.querySelector('label:first-of-type')
+const lastInputLabelEl = document.querySelector('label:last-of-type')
 const calculateBtnEl = document.querySelector('.calculate')
 const yearsDisplayEl = document.querySelector('.outputs .years .value')
 const monthsDisplayEl = document.querySelector('.outputs .months .value')
 const daysDisplayEl = document.querySelector('.outputs .days .value')
-const LOG_LEVEL = 'DEBUG' // INFO, DEBUG, NONE
+const LOG_LEVEL = '' // INFO, DEBUG, NONE
 
 function addLog(message, logLevel, addMark) {
   logLevel = logLevel ?? LOG_LEVEL
@@ -188,13 +190,6 @@ function calculateOutputs(userDate, todayDate) {
   }
   let totalYears = Math.floor(totalMonths / 12)
   totalMonths = totalMonths % 12
-
-  console.log('1) Test curr date', currDate.toLocaleDateString())
-  console.log('2) Test birth date', userDate.toLocaleDateString())
-  console.log('3) totalYears', totalYears)
-  console.log('4) totalMonths', totalMonths)
-  console.log('5) totalDays', totalDays)
-
   return { days: totalDays, months: totalMonths, years: totalYears }
 }
 
@@ -225,6 +220,26 @@ formEl.addEventListener('submit', function (e) {
     const calculatedData = calculateOutputs(birthdate)
     renderOutputs(calculatedData)
   }
+})
+
+document.addEventListener('click', function (e) {
+  // clear invalid styles onclick outside input and button area
+})
+
+document.addEventListener('click', function (e) {
+  // clear invalid styles onclick outside input and button area
+  const firstInputLabelElArea = firstInputLabelEl.getBoundingClientRect()
+  const lastInputLabelElArea = lastInputLabelEl.getBoundingClientRect()
+  const calculateBtnElArea = calculateBtnEl.getBoundingClientRect()
+
+  const isClickInsideLabels = e.clientY >= firstInputLabelElArea.top && e.clientY <= firstInputLabelElArea.bottom && e.clientX >= firstInputLabelElArea.left && e.clientX <= lastInputLabelElArea.right
+  const isClickInsideButton = e.clientY >= calculateBtnElArea.top && e.clientY <= calculateBtnElArea.bottom && e.clientX >= calculateBtnElArea.left && e.clientX <= calculateBtnElArea.right
+  if (isClickInsideLabels || isClickInsideButton) {
+    addLog('click is within labels and buttons', 'DEBUG')
+    return
+  }
+  addLog('click is outside labels and buttons', 'DEBUG')
+  resetStyles()
 })
 
 // Reset Styles
