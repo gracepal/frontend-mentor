@@ -11,3 +11,111 @@
     --color-dark-blue: hsl(218, 23%, 16%);
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    font-family: var(--font-family);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--color-dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 550px;
+    /* height: 350px; */
+    background: var(--color-dark-grayish-blue);
+    border-radius: 15px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 45px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.advice-id {
+    color: var(--color-neon-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: light;
+    font-size: calc(var(--font-size-quote) * 0.5);
+}
+
+.quote {
+    color: var(--color-light-cyan);
+    font-size: var(--font-size-quote);
+}
+
+.mark {
+    position: relative;
+    height: calc(var(--font-size-quote) * 2.5);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    border: 1px solid var(--color-light-cyan);
+    width: 100%;
+}
+
+.mark::before {
+    content: '"';
+    font-size: calc(var(--font-size-quote) * 2.5);
+    background: var(--color-dark-grayish-blue);
+    display: inline-block;
+    width: calc(var(--font-size-quote) * 2);
+    color: var(--color-light-cyan);
+    position: absolute;
+    top: calc(var(--font-size-quote) * 0.2);
+    left: calc(50% - calc(var(--font-size-quote) * 2) / 2);
+}
+
+button {
+    background: var(--color-neon-green);
+    height: calc(var(--font-size-quote) * 2.5);
+    width: calc(var(--font-size-quote) * 2.5);
+    z-index: 1;
+    position: absolute;
+    bottom: calc(var(--font-size-quote) * -1.25);
+    border-radius: 50%;
+    border: 1px solid var(--color-dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.2s ease;
+}
+
+button:hover {
+    border: none;
+    box-shadow: 0 0 45px hsl(150, 100%, 82%);
+    cursor: pointer;
+}
+
+
+/* For Debugging Only */
+
+/* html { border: 4px solid pink; } */
+/* body { border: 4px solid cyan; } */
+/* .container { border: 4px solid brown; } */
+/* .card { border: 4px solid white; } */
