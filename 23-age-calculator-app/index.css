@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+:root {
+    --font-family: "Poppins", sans-serif;
+    /* --font-family: sans-serif; */
+    --font-size: 32px;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-weight-bolder: 800;
+    --color-purple: hsl(259, 100%, 65%);
+    --color-light-red: hsl(0, 100%, 67%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-off-white: hsl(0, 0%, 94%);
+    --color-light-grey: hsl(0, 0%, 86%);
+    --color-smokey-grey: hsl(0, 1%, 44%);
+    --color-off-black: hsl(0, 0%, 8%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    text-decoration: none;
+    outline: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-light-grey);
+}
+
+.container {
+    width: 590px;
+    min-width: 540px;
+    height: 475px;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 135px 15px;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* ----- INPUTS ----- */
+
+.inputs {
+    flex-basis: 30%;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom: 2px solid var(--color-light-grey);
+
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    position: relative;
+}
+
+.inputs::after:hover {
+    color: var(--color-off-white);
+    background: var(--color-off-black);
+    cursor: pointer;
+}
+
+.inputs label {
+    width: 22%;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-smokey-grey);
+}
+
+.inputs label {
+    text-transform: uppercase;
+    font-size: calc(var(--font-size) * 0.4);
+}
+
+.inputs label.error {
+    color: var(--color-light-red);
+}
+
+.inputs input {
+    border: 2px solid var(--color-light-grey);
+    width: 100%;
+    padding: 5px 14px;
+    font-size: calc(var(--font-size) * 0.9);
+    margin: 4px 0;
+    border-radius: 5px;
+    color: var(--color-off-black);
+    font-weight: var(--font-weight-bolder);
+}
+
+.inputs label.error input {
+    border: 1px solid var(--color-light-red);
+}
+
+.inputs input:hover {
+    cursor: pointer;
+}
+
+.inputs input::placeholder {
+    font-size: calc(var(--font-size) * 0.8);
+}
+
+.inputs input:focus {
+    border: 1px solid var(--color-purple);
+}
+
+.inputs input:focus::placeholder {
+    opacity: 0;
+}
+
+p.error {
+    font-size: calc(var(--font-size) * 0.3);
+    text-transform: none;
+    font-style: italic;
+    color: var(--color-light-red);
+    font-weight: var(--font-weight-normal);
+    opacity: 0;
+}
+
+label.error p.error {
+    opacity: 1;
+}
+
+p.error::first-letter {
+    text-transform: uppercase;
+}
+
+/* ----- CALCULATE BUTTON ----- */
+
+
+.calculate {
+    background-color: var(--color-purple);
+    width: 78px;
+    height: 78px;
+    position: absolute;
+    bottom: calc(78px / 2 * -1);
+    right: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.calculate:hover {
+    cursor: pointer;
+    background: var(--color-off-black);
+}
+
+.calculate svg {
+    transition: transform 0.2s ease;
+}
+
+.calculate:hover svg {
+    transform: translateY(5px);
+}
+
+
+
+/* ----- OUTPUTS ----- */
+
+.outputs {
+    flex-basis: 70%;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+    padding-top: 6%;
+}
+
+.outputs > div {
+    height: 35%;
+    font-size: calc(var(--font-size) * 2.5);
+    font-weight: var(--font-weight-bolder);
+    font-style: italic;
+    line-height: calc(var(--font-size) * 2.3);
+    letter-spacing: -2px;
+    color: var(--color-off-black);
+
+}
+
+.outputs .value {
+    color: var(--color-purple);
+    font-size: inherit;
+    font-size: calc(var(--font-size) * 2.5);
+}
+
+/* ------------- */
+/* FOR DEBUGGING */
+/* ------------- */
+
+
+
+/* html { border: 6px solid purple; }
+body { border: 6px solid green; } */
+/* .container { border: 6px solid blue; } */
+/* .card { border: 6px solid magenta; } */
+/* .inputs { border: 2px solid yellow; } */
+/* .outputs { border: 2px solid orange; } */
