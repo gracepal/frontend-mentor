@@ -120,6 +120,27 @@ button:hover {
     cursor: pointer;
 }
 
+/* Media Queries */
+
+@media only screen and (max-width: 400px) {
+    .container {
+        width: 335px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .quote {
+        font-size: calc(var(--font-size-quote) * 0.8)
+    }
+
+    .mark {
+        margin-top: -15px;
+        margin-bottom: 15px;
+    }
+}
+
 
 /* For Debugging Only */
 
