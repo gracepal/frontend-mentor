@@ -29,9 +29,13 @@ Users should be able to:
   - [x] inputs - on error, border and label to red, label, red error message below
   - [x] button - on hover, background from purple to black
 
-- **Bonus**: See the age numbers animate to their final number when the form is submitted
+- [x] **Bonus**: See the age numbers animate to their final number when the form is submitted
 
 ### Screenshot
+
+<img src="https://github.com/gracepal/frontend-mentor/assets/131278381/b87c4798-504b-4aaa-951e-a2e87615d068" width="600">
+
+<img src="https://github.com/gracepal/frontend-mentor/assets/131278381/8c6504c0-2025-4235-adb8-d829371661ec" width="600">
 
 ### Links
 
