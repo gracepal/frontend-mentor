@@ -138,13 +138,6 @@ function isValidDate(day, month, year) {
  * @param {Date} todayDate - "Today" as Date() object, this may be defaulted to today
  *  if none is explicitly passed in, else user may pass in test values
  * @returns dictionary of { days: totalDays, months: totalMonths, years: totalYears }
- *
- *      |------------------------------|
- *    birth                          today
- *
- * totalYears: difference in years, decremented if same year and birth month < today month
- * totalMonths:
- * totalDays:
  */
 function calculateOutputs(userDate, todayDate) {
   const currDate = todayDate ?? getDate()
@@ -193,10 +186,37 @@ function calculateOutputs(userDate, todayDate) {
   return { days: totalDays, months: totalMonths, years: totalYears }
 }
 
+// function animateOutput(element, value) { // Follow up - This Versus Below
+//   element.textContent = 0
+//   for (let i = 0; i < value; i++) {
+//     setTimeout(function () {
+//       element.textContent = i
+//     }, 1000)
+//   }
+// }
+
+function animateOutput(element, value) {
+  // Follow up - This Versus Above
+  let i = 0
+  let interval = 1000 / value
+
+  function updateValue() {
+    if (i <= value) {
+      element.textContent = i
+      i++
+      setTimeout(updateValue, interval)
+    }
+  }
+
+  updateValue()
+}
+
 function renderOutputs({ days, months, years }) {
-  yearsDisplayEl.textContent = years
-  monthsDisplayEl.textContent = months
-  daysDisplayEl.textContent = days
+  animateOutput(yearsDisplayEl, years)
+  animateOutput(monthsDisplayEl, months)
+  animateOutput(daysDisplayEl, days)
+
+  addLog(`Calculated: days=${days} months=${months} years=${years}`, 'INFO')
 }
 
 // Event Listeners
@@ -226,21 +246,22 @@ document.addEventListener('click', function (e) {
   // clear invalid styles onclick outside input and button area
 })
 
-document.addEventListener('click', function (e) {
-  // clear invalid styles onclick outside input and button area
-  const firstInputLabelElArea = firstInputLabelEl.getBoundingClientRect()
-  const lastInputLabelElArea = lastInputLabelEl.getBoundingClientRect()
-  const calculateBtnElArea = calculateBtnEl.getBoundingClientRect()
+// NOTE: with the animated count, looks better without the resetting
+// document.addEventListener('click', function (e) {
+//   // clear invalid styles onclick outside input and button area
+//   const firstInputLabelElArea = firstInputLabelEl.getBoundingClientRect()
+//   const lastInputLabelElArea = lastInputLabelEl.getBoundingClientRect()
+//   const calculateBtnElArea = calculateBtnEl.getBoundingClientRect()
 
-  const isClickInsideLabels = e.clientY >= firstInputLabelElArea.top && e.clientY <= firstInputLabelElArea.bottom && e.clientX >= firstInputLabelElArea.left && e.clientX <= lastInputLabelElArea.right
-  const isClickInsideButton = e.clientY >= calculateBtnElArea.top && e.clientY <= calculateBtnElArea.bottom && e.clientX >= calculateBtnElArea.left && e.clientX <= calculateBtnElArea.right
-  if (isClickInsideLabels || isClickInsideButton) {
-    addLog('click is within labels and buttons', 'DEBUG')
-    return
-  }
-  addLog('click is outside labels and buttons', 'DEBUG')
-  resetStyles()
-})
+//   const isClickInsideLabels = e.clientY >= firstInputLabelElArea.top && e.clientY <= firstInputLabelElArea.bottom && e.clientX >= firstInputLabelElArea.left && e.clientX <= lastInputLabelElArea.right
+//   const isClickInsideButton = e.clientY >= calculateBtnElArea.top && e.clientY <= calculateBtnElArea.bottom && e.clientX >= calculateBtnElArea.left && e.clientX <= calculateBtnElArea.right
+//   if (isClickInsideLabels || isClickInsideButton) {
+//     addLog('click is within labels and buttons', 'DEBUG')
+//     return
+//   }
+//   addLog('click is outside labels and buttons', 'DEBUG')
+//   resetStyles()
+// })
 
 // Reset Styles
 
@@ -257,17 +278,17 @@ function isMatching(actual, expected) {
 function runTest(testBirthdate, testToday, scenario, expected) {
   const testOutcome = calculateOutputs(testBirthdate, testToday)
   let matching = isMatching(testOutcome, expected)
-  console.log(`Scenario: ${scenario} ${matching ? '✅' : '❌'}`)
-  console.log(`Birthdate: ${testBirthdate.toLocaleDateString()}`)
-  console.log(`Today: ${testToday.toLocaleDateString()}`)
-  console.log(`Actual: ${JSON.stringify(testOutcome)}`)
+  addLog(`Scenario: ${scenario} ${matching ? '✅' : '❌'}`, 'DEBUG')
+  addLog(`Birthdate: ${testBirthdate.toLocaleDateString()}`, 'DEBUG')
+  addLog(`Today: ${testToday.toLocaleDateString()}`, 'DEBUG')
+  addLog(`Actual: ${JSON.stringify(testOutcome)}`, 'DEBUG')
   if (!matching) {
-    console.log(`Expected: ${JSON.stringify(expected)}`)
+    addLog(`Expected: ${JSON.stringify(expected)}`, 'DEBUG')
   }
-  console.log(`-------------------------- ${count}`)
+  addLog(`-------------------------- ${count}`, 'DEBUG')
   count++
 }
-console.log('**************************')
+addLog('**************************', 'DEBUG')
 runTest(getDate(19, 2, 2020), getDate(19, 2, 2024), 'Same day', { days: 0, months: 0, years: 4 })
 runTest(getDate(19, 2, 2023), getDate(19, 2, 2024), '1 year less', { days: 0, months: 0, years: 1 })
 runTest(getDate(18, 2, 2023), getDate(19, 2, 2024), '1 day less', { days: 1, months: 0, years: 1 })
@@ -288,4 +309,4 @@ runTest(getDate(20, 2, 2024), getDate(19, 2, 2025), '1 day more, curr NOT LEAP y
 //              subtract diff from the endOfCurrMonth
 // runTest(getDate(20, 2, 2023), getDate(19, 2, 2024), '1 day more, curr IS LEAP year', { days: 28, months: 11, years: 0 })
 // runTest(getDate(20, 2, 2024), getDate(19, 2, 2025), '1 day more, curr NOT LEAP year', { days: 27, months: 11, years: 0 })
-console.log('**************************')
+addLog('**************************', 'DEBUG')
