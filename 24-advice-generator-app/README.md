@@ -25,7 +25,9 @@ Users should be able to:
 
 <img width="800" alt="desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/745fc779-62aa-458c-ab7c-057d351797b1">
 
+<img width="800" alt="advices" src="https://github.com/gracepal/frontend-mentor/assets/131278381/854a43dd-d336-481f-9afb-a1ed05f71a61">
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/24-advice-generator-app
+- Live Site URL: https://storied-khapse-6d595e.netlify.app/
