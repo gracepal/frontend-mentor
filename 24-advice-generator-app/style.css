@@ -55,7 +55,7 @@ body {
 .advice-id {
     color: var(--color-neon-green);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     font-weight: light;
     font-size: calc(var(--font-size-quote) * 0.5);
 }
@@ -63,6 +63,14 @@ body {
 .quote {
     color: var(--color-light-cyan);
     font-size: var(--font-size-quote);
+}
+
+.quote::before {
+    content: open-quote;
+}
+
+.quote::after {
+    content: close-quote;
 }
 
 .mark {
