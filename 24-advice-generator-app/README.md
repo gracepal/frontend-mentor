@@ -21,6 +21,10 @@ Users should be able to:
 
 ### Screenshot
 
+<img width="600" alt="mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/9e9052c5-5a7a-4ec6-aa2a-8adac9bcc065">
+
+<img width="800" alt="desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/745fc779-62aa-458c-ab7c-057d351797b1">
+
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
