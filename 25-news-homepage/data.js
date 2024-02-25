@@ -11,11 +11,11 @@ const data = {
       topics: ['', '', ''],
     },
     navlinks: {
-      Home: '',
-      New: '',
-      Popular: '',
-      Trending: '',
-      Categories: '',
+      Home: '#',
+      New: '#',
+      Popular: '#',
+      Trending: '#',
+      Categories: '#',
     },
     new: {
       title: 'New',
