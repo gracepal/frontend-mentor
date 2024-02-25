@@ -49,6 +49,8 @@ html, body {
 .navbar ul {
     display: flex;
     gap: 25px;
+
+    display: none;
 }
 
 .navbar a {
@@ -61,19 +63,67 @@ html, body {
 
 .hamburger-btn {
 
-    width: 65px;
+    width: 60px;
     height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    display: none;
+    /* display: none; */
+}
+
+.hamburger-btn:hover {
+    cursor: pointer;
 }
 
 .hamburger-btn .bar {
-    width: 65px;
+    width: 60px;
     height: 5px;
     background-color: var(--color-very-dark-blue);
+}
+
+.animateBar1 {
+    animation: flipBar1 1s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar2 {
+    animation: fadeBar2 1s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar3 {
+    animation: flipBar3 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flipBar1 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(45deg) translate(15px, 2px) scaleX(0.5);
+    }
+}
+
+@keyframes fadeBar2 {
+    from {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    to {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
+
+@keyframes flipBar3 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-45deg) translate(15px, -3px)  scaleX(0.5);
+    }
 }
 
 /* -----------  MAIN  ----------- */
