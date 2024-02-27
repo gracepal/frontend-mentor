@@ -6,9 +6,8 @@ const data = {
       button: 'Read more',
     },
     images: {
-      logo: '',
-      main: '',
-      topics: ['', '', ''],
+      logo: './assets/images/logo.svg',
+      main: './assets/images/image-web-3-desktop.jpg',
     },
     navlinks: {
       Home: '#',
@@ -33,23 +32,26 @@ const data = {
           line: 'Private funding by VC firms is down 50% YOY. We take a look at what that means.',
         },
       ],
-      topics: [
-        {
-          id: '01',
-          title: 'Reviving Retro PCs',
-          line: 'What happens when old PCs are given modern upgrades?',
-        },
-        {
-          id: '02',
-          title: 'Top 10 Laptops of 2022',
-          line: 'Our best picks for various needs and budgets.',
-        },
-        {
-          id: '03',
-          title: 'The Growth of Gaming',
-          line: 'How the pandemic has sparked fresh opportunities.',
-        },
-      ],
     },
+    topics: [
+      {
+        id: '01',
+        title: 'Reviving Retro PCs',
+        line: 'What happens when old PCs are given modern upgrades?',
+        image: './assets/images/image-retro-pcs.jpg',
+      },
+      {
+        id: '02',
+        title: 'Top 10 Laptops of 2022',
+        line: 'Our best picks for various needs and budgets.',
+        image: './assets/images/image-top-laptops.jpg',
+      },
+      {
+        id: '03',
+        title: 'The Growth of Gaming',
+        line: 'How the pandemic has sparked fresh opportunities.',
+        image: './assets/images/image-gaming-growth.jpg',
+      },
+    ],
   },
 }
