@@ -8,28 +8,31 @@ function setupNavbar() {
 
   // Setup navlinks
   const navbarUlEl = document.querySelector('.navbar ul')
+  const navmenuUlEl = document.querySelector('.navmenu.mobile ul')
   const { navlinks } = data.data
   for (const [name, source] of Object.entries(navlinks)) {
+    // Setup top menu
     const liEl = document.createElement('li')
     const aEl = document.createElement('a')
     aEl.textContent = name
     aEl.href = source
     liEl.appendChild(aEl)
     navbarUlEl.appendChild(liEl)
+
+    // Setup mobile  menu
+    const liElMobile = document.createElement('li')
+    const aElMobile = document.createElement('a')
+    aElMobile.textContent = name
+    aElMobile.href = source
+    liElMobile.appendChild(aElMobile)
+    navmenuUlEl.appendChild(liElMobile)
   }
 }
 
 function setupMainSection() {
-  const imgContainerEl = document.querySelector('.image-container')
-  const imgEl = document.createElement('img')
   const titleEl = document.querySelector('.title')
   const descEl = document.querySelector('.intro p')
   const btnEl = document.querySelector('.intro p + button')
-
-  // Setup main image
-  const imgSrc = data.data.images.main
-  imgEl.src = imgSrc
-  imgContainerEl.appendChild(imgEl)
 
   // Setup title
   const titleText = data.data.main.title
