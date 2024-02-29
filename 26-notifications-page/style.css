@@ -25,8 +25,235 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-size: var(--font-size);
+    font-weight: var(--font-weight-normal);
 }
 
-h1 {
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-very-light-grayish-blue);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.container {
+    width: 780px;
+    position: relative;
+    margin-top: 25px;
+}
+
+/* hack to add space to the bottom of the scrolling y */
+.container::after {
+    content: "";
+    height: 150px;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+/* ****************************************
+                Feed Container
+**************************************** */
+
+.feed {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 18px var(--color-light-grayish-blue-2);
+    padding: 40px;
+    overflow: scroll;
+    overflow-y: auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.notifications-count {
+    font-size: calc(var(--font-size) * 2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+    display: flex;
+    align-items: center;
+}
+
+.notifications-count span {
+    font-size: calc(var(--font-size) * 1.5);
+    font-weight: var(--font-weight-normal);
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 3px 14px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.mark-all a {
+    font-size: calc(var(--font-size) * 1.2);
+    color: var(--color-dark-grayish-blue);
+}
+
+.mark-all a:hover {
+    cursor: pointer;
     color: var(--color-blue);
+}
+
+
+/* ****************************************
+                Single Feed
+**************************************** */
+
+.activities {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    border-radius: 8px;
+    padding: 10px 18px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+}
+
+.item .left {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.item .right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item .tagged-image {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    border: 2px solid var(--color-light-grayish-blue-1);
+    padding: 2px;
+    border-radius: 12px;
+}
+
+.item img {
+    width: 55px;
+}
+
+.item.unread {
+    background-color: var(--color-very-light-grayish-blue);
+    margin: 2px 0;
+}
+
+.row1 {
+    position: relative;
+}
+
+.item .name {
+    font-size: calc(var(--font-size) * 1);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+
+}
+
+.item .reaction {
+    color: var(--color-grayish-blue);
+    margin: 0 0 0 4px;
+    line-height: 22px;
+}
+
+.item .reaction .target {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark-grayish-blue);
+    margin: 0 0 0 4px;
+}
+
+.item .reaction .target:hover {
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.item.unread .row1 > *:last-child::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-red);
+    border-radius: 50%;
+    position: absolute;
+    bottom: calc(var(--font-size) * 0.15);
+    right: calc(var(--font-size) * -1.15);
+}
+
+.item .past {
+    color: var(--color-grayish-blue);
+}
+
+.item .message {
+    width: 95%;
+    border: 2px solid var(--color-light-grayish-blue-2);
+    border-radius: 5px;
+    padding: 22px;
+    color: var(--color-grayish-blue);
+}
+
+
+/* ****************************************
+                Media Queries
+**************************************** */
+
+@media only screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        min-width: 375px;
+    }
+    .container::after {
+        content: "";
+        height: 0;
+    }
+    .feed {
+        padding: 21px
+    }
+    .notifications-count {
+        font-size: calc(var(--font-size) * 1.2);
+    }
+    .notifications-count span {
+        font-size: calc(var(--font-size) * 0.8);
+    }
+    .mark-all a {
+        font-size: var(--font-size);
+    }
+
+    /* -- Single Feed -- */
+    .item img {
+        width: 45px;
+        border: 2px solid blue;
+    }
+
+    .item .name {
+        font-size: calc(var(--font-size) * 1);
+    }
+
+    .item .reaction {
+        font-size: calc(var(--font-size) * 0.9);
+    }
 }
