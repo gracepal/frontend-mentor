@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --font-family: "Plus Jakarta Sans", sans-serif;
+    --font-size: 16px;
+    --font-weight-normal: 500;
+    --font-weight-bold: 800;
+    --color-red: hsl(1, 90%, 64%);
+    --color-blue: hsl(219, 85%, 26%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-very-light-grayish-blue: hsl(210, 60%, 98%);
+    --color-light-grayish-blue-1: hsl(211, 68%, 94%);
+    --color-light-grayish-blue-2: hsl(205, 33%, 90%);
+    --color-grayish-blue: hsl(219, 14%, 63%);
+    --color-dark-grayish-blue: hsl(219, 12%, 42%);
+    --color-very-dark-blue: hsl(224, 21%, 14%);
+}
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-normal);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-very-light-grayish-blue);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.container {
+    width: 780px;
+    position: relative;
+    margin-top: 25px;
+}
+
+/* hack to add space to the bottom of the scrolling y */
+.container::after {
+    content: "";
+    height: 150px;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+/* ****************************************
+                Feed Container
+**************************************** */
+
+.feed {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 18px var(--color-light-grayish-blue-2);
+    padding: 40px;
+    overflow: scroll;
+    overflow-y: auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.notifications-count {
+    font-size: calc(var(--font-size) * 2);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+    display: flex;
+    align-items: center;
+}
+
+.notifications-count span {
+    font-size: calc(var(--font-size) * 1.5);
+    font-weight: var(--font-weight-normal);
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 3px 14px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.mark-all a {
+    font-size: calc(var(--font-size) * 1.2);
+    color: var(--color-dark-grayish-blue);
+}
+
+.mark-all a:hover {
+    cursor: pointer;
+    color: var(--color-blue);
+}
+
+
+/* ****************************************
+                Single Feed
+**************************************** */
+
+.activities {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    border-radius: 8px;
+    padding: 10px 18px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+}
+
+.item .left {
+    width: 80px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.item .right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.item .tagged-image {
+    position: absolute;
+    top: 18px;
+    right: 40px; /*the padding set on .item*/
+
+    border: 2px solid var(--color-light-grayish-blue-1);
+    padding: 2px;
+    border-radius: 12px;
+}
+
+.item img {
+    width: 55px;
+}
+
+.item.unread {
+    background-color: var(--color-very-light-grayish-blue);
+    margin: 2px 0;
+}
+
+.row1 {
+    position: relative;
+}
+
+.item .name {
+    font-size: calc(var(--font-size) * 1);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+
+}
+
+.item .reaction {
+    color: var(--color-grayish-blue);
+    margin: 0 0 0 4px;
+    line-height: 22px;
+}
+
+.item .reaction .target {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark-grayish-blue);
+    margin: 0 0 0 4px;
+}
+
+.item .reaction .target:hover {
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.item.unread .row1::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-red);
+    border-radius: 50%;
+    position: absolute;
+    transform: translateY(6px) translateX(4px) scale(0.75);
+}
+
+.item .past {
+    color: var(--color-grayish-blue);
+}
+
+.item .message {
+    width: 95%;
+    border: 2px solid var(--color-light-grayish-blue-2);
+    border-radius: 5px;
+    padding: 22px;
+    color: var(--color-grayish-blue);
+}
+
+
+/* ****************************************
+                Media Queries
+**************************************** */
+
+@media only screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        min-width: 375px;
+    }
+    .container::after {
+        content: "";
+        height: 0;
+    }
+    .feed {
+        padding: 21px
+    }
+    .notifications-count {
+        font-size: calc(var(--font-size) * 1.2);
+    }
+    .notifications-count span {
+        font-size: calc(var(--font-size) * 0.8);
+    }
+    .mark-all a {
+        font-size: var(--font-size);
+    }
+
+    /* -- Single Feed -- */
+    .item {
+        display: flex;
+        padding: 0;
+    }
+
+    .item .left {
+        flex: 0 0 50px;
+    }
+
+    .item img {
+        width: 45px;
+    }
+
+    .item .name {
+        font-size: calc(var(--font-size) * 0.9);
+        white-space: nowrap;
+    }
+
+    .item .reaction {
+        font-size: calc(var(--font-size) * 0.9);
+    }
+
+    .item .tagged-image {
+        top: 3px;
+        padding: 0;
+    }
+
+    .item:has(.tagged-image) .right {
+        margin-right: 60px;
+        position: relative;
+    }
+
+    .item .message {
+        padding: 14px;
+        font-size: calc(var(--font-size) * 0.9);
+    }
+
+    .row1 {
+        /* display: inline-block; */
+        position: relative;
+        padding-right: 4px;
+    }
+
+    .item .reaction .target {
+        font-weight: var(--font-weight-normal);
+        font-size: calc(var(--font-size) * 0.9);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .item .tagged-image {
+        right: 12px;
+    }
+}
