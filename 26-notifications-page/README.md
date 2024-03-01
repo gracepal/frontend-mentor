@@ -22,7 +22,11 @@ Users should be able to:
 
 ### Screenshot
 
+<img width="600" alt="notifications-page-desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/f8d64e4f-7c00-4702-8fcd-4d5487c743e6">
+
+<img width="600" alt="notifications-page-mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/c7136330-5fb0-4cb4-b071-94d3709eb578">
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/26-notifications-page
+- Live Site URL: https://rainbow-faloodeh-0f34c8.netlify.app/
