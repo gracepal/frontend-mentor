@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+:root {
+    --font-barlow-sans-serif: "Barlow", sans-serif;
+    --font-fraunces-serif: "Fraunces", serif;
+    --font-weight-barlow-600: 600;
+    --font-weight-fraunces-700: 700;
+    --font-weight-fraunces-900: 900;
+    --font-size: 18px;
+    --color-soft-red: hsl(7, 99%, 70%);
+    --color-yellow: hsl(51, 100%, 49%);
+    --color-dark-cyan-graphic-design: hsl(167, 40%, 24%);
+    --color-dark-blue-photography: hsl(198, 62%, 26%);
+    --color-dark-moderate-cyan-footer: hsl(168, 34%, 41%);
+    --color-very-dark-blue: hsl(212, 27%, 19%);
+    --color-very-dark-grayish-blue: hsl(213, 9%, 39%);
+    --color-dark-grayish-blue: hsl(232, 10%, 55%);
+    --color-grayish-blue: hsl(210, 4%, 67%);
+    --color-white: hsl(0, 0%, 100%);
+}
