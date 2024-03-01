@@ -1,5 +1,3 @@
-console.log('setup - data', data)
-
 // Helper funtion to setup individual activity
 function generateRow({ id, user, avatar, activity, taggedImage, target, past, message, unread }) {
   const feedEl = document.createElement('div')
