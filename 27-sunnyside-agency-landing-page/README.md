@@ -15,11 +15,14 @@ This is a solution to the [Sunnyside agency landing page challenge on Frontend M
 
 Users should be able to:
 
-- [ ] View the optimal layout for the site depending on their device's screen size
-- [ ] See hover states for all interactive elements on the page
+- [X] View the optimal layout for the site depending on their device's screen size
+- [X] See hover states for all interactive elements on the page
 
 ### Screenshot
 
+| Desktop  | Mobile | Hamburger Menu |
+| ------------- | ------------- | ------------- |
+|  <img width="349" alt="desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/34ed12c9-9154-49ff-8ea4-84a32e8766d6">  |   <img width="229" alt="mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/f2029b9c-5caf-4476-9a88-52b6d421a958">  |. <img width="668" alt="mobile hamburger menu" src="https://github.com/gracepal/frontend-mentor/assets/131278381/7d9a1c3e-5551-499e-996c-7686a55deb7a">  |
 
 ### Links
 
