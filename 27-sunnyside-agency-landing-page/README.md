@@ -26,5 +26,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/27-sunnyside-agency-landing-page
+- Live Site URL: https://bucolic-custard-4f028f.netlify.app/
