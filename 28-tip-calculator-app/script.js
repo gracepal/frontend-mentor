@@ -41,6 +41,10 @@ function getDollarAmount(num) {
 
 function validateForm() {
   console.log(`INFO: validateForm()`)
+  billInputContainer.classList.remove('error')
+  splitInputContainer.classList.remove('error')
+  tipOptionsContainer.classList.remove('error')
+
   if (getBillAmount() === 0) {
     billInputContainer.classList.add('error')
   }
@@ -86,7 +90,7 @@ function submitForm() {
   console.log(`INFO: submitForm()`)
   resetBtn.removeAttribute('disabled')
   validateForm()
-  if (noErrors) {
+  if (noErrors()) {
     calculateResults()
   }
 }
