@@ -59,7 +59,7 @@ function calculateResults() {
   const tipOption = getSelectedOption()
 
   const billAmountPerPerson = billAmount / numPeople
-  const tipAmountPerPerson = tipOption / numPeople
+  const tipAmountPerPerson = ((billAmount * tipOption) / 100).toFixed(2) / numPeople
   const totalAmountPerPerson = billAmountPerPerson + tipAmountPerPerson
 
   tipAmountPerPersonDisplay.textContent = getDollarAmount(tipAmountPerPerson)
@@ -75,6 +75,10 @@ function resetForm() {
     radio.checked = false
   })
   customBtn.value = ''
+  billInput.value = ''
+  splitInput.value = ''
+  tipAmountPerPersonDisplay.textContent = '$0.00'
+  totalAmountPerPersonDisplay.textContent = '$0.00'
   resetBtn.setAttribute('disabled', true)
 }
 
