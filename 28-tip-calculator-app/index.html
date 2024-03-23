@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <img src="./images/logo.svg" alt="logo">
+  <div class="container">
+    <form action="">
+      <div class="inputs-container">
+        <div class="bill-container">
+          <label for="bill">Bill</label>
+          <div class="input-container">
+            <span class="error-message">Can't be zero</span>
+            <img src="./images/icon-dollar.svg" alt="icon-dollar">
+            <input type="number" id="bill" name="bill" value="" placeholder="0" class="">
+          </div>
+        </div>
+        <div class="tip-options-container">
+          <span class="error-message">Can't be zero</span>
+          <label for="tip-options" class="tip-options">Select Tip %</label>
+          <div class="radio-container">
+            <input type="radio" name="tip-options" id="tip-option-5" value="5">
+            <label for="tip-option-5">5%</label>
+            <input type="radio" name="tip-options" id="tip-option-10" value="10">
+            <label for="tip-option-10">10%</label>
+            <input type="radio" name="tip-options" id="tip-option-15" value="15">
+            <label for="tip-option-15">15%</label>
+            <input type="radio" name="tip-options" id="tip-option-25" value="25">
+            <label for="tip-option-25">25%</label>
+            <input type="radio" name="tip-options" id="tip-option-50" value="50">
+            <label for="tip-option-50">50%</label>
+            <input type="number" name="tip-options" id="tip-option-custom" value="" placeholder="Custom" class="">
+          </div>
+        </div>
+        <div class="persons-count-container">
+          <label for="persons-count">Number of People</label>
+          <div class="input-container">
+            <span class="error-message">Can't be zero</span>
+            <img src="./images/icon-person.svg" alt="icon-person">
+            <input type="number" id="persons-count" name="persons-count" value="" placeholder="0">
+          </div>
+        </div>
+      </div>
+      <div class="results-container">
+        <div class="rows">
+          <div class="row">
+            <div class="left">
+              <div class="label tip-amount">Tip Amount</div>
+              <div class="breakdown per-person"><span class="person-count"></span>/ person</div>
+            </div>
+            <div class="right tip-amount-per-person">$0.00</div>
+          </div>
+          <div class="row">
+            <div class="left">
+              <div class="label total-amount">Total</div>
+              <div class="breakdown per-person"><span class="person-count"></span>/ person</div>
+            </div>
+            <div class="right total-amount-per-person">$0.00</div>
+          </div>
+        </div>
+        <button type="reset" class="btn-reset" disabled>RESET</button>
+      </div>
+    </form>
+  </div>
+  <div class="space">just space</div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
