@@ -15,13 +15,17 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 Users should be able to:
 
-- [ ] View the optimal layout for the app depending on their device's screen size
-- [ ] See hover states for all interactive elements on the page
-- [ ] Calculate the correct tip and total cost of the bill per person
+- [X] View the optimal layout for the app depending on their device's screen size
+- [X] See hover states for all interactive elements on the page
+- [X] Calculate the correct tip and total cost of the bill per person
 
 ### Screenshot
 
+<img width="900" alt="desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/13bfa3f0-942a-47fb-9ca3-f05f056e24c2">
+
+<img width="450" alt="mobile" src="https://github.com/gracepal/frontend-mentor/assets/131278381/7313dfb9-3229-4949-841b-ca4b2e5b476d">
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/28-tip-calculator-app
+- Live Site URL: https://eloquent-paprenjak-79892a.netlify.app/
