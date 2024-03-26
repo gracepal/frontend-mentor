@@ -29,6 +29,7 @@
     display: none;
 }
 
+
 html, body {
     width: 100%;
     height: 100%;
@@ -68,19 +69,20 @@ body {
     color: white;
 }
 
-.balance .group {
+.balance-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.balance .group .title {
+.balance-group .title {
     font-size: calc(0.8 * var(--font-size));
 }
 
-.balance .group .value {
+.balance-group .value {
     font-size: calc(var(--font-size) * 1.4);
     font-weight: var(--font-weight-bold);
+
 }
 
 
@@ -95,6 +97,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid green;
 }
 
 .chart .title {
@@ -115,7 +118,6 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
-    text-align: center;
 }
 
 .day {
@@ -156,7 +158,6 @@ body {
     font-size: calc(var(--font-size) * 0.8);
     font-weight: var(--font-weight-bold);
     visibility: hidden;
-    z-index: 1;
 }
 
 .day:hover .popover {
@@ -167,7 +168,7 @@ body {
     background-color: var(--color-cyan);
 }
 
-.day .name {
+.day .label {
     color: var(--color-dark-brown);
 }
 
@@ -190,40 +191,10 @@ body {
     font-weight: var(--font-weight-bold);
 }
 
-/* Media Breakpoints */
 
-@media only screen and (max-width: 485px) {
-    .container {
-        max-width: 95%;
-    }
 
-    .chart {
-        padding: 18px;
-    }
+/* For Debugging Only */
 
-    .chart .title {
-        font-size: calc(var(--font-size)*1.2);
-        margin-bottom: 35px;
-    }
-
-    .days {
-        grid-template-columns: repeat(7, minmax(30px, 1fr));
-        gap: 6px;
-    }
-
-    .day .name {
-        font-size: calc(var(--font-size)*0.8);
-    }
-}
-
-@media only screen and (max-width: 300px) {
-    .container {
-        display: none;
-    }
-    body::after {
-        content: 'Please view on a wider screen.';
-        text-align: center;
-        font-size: calc(2*var(--font-size));
-        margin: 5%;
-    }
-}
+/* html { border: 2px solid blue; } */
+/* body { border: 2px solid green; } */
+/* .container { border: 2px solid salmon; } */
