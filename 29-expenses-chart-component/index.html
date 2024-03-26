@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Expenses chart component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-
-  My balance
-  $921.48
-
-  Spending - Last 7 days
-
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun
-
-  Total this month
-  $478.33
-
-  +2.4%
-  from last month
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="container">
+    <div class="balance">
+      <div class="group">
+        <span class="title">My balance</span>
+        <span class="value">$921.48</span>
+      </div>
+      <div class="image">
+        <img src="./images/logo.svg" alt="">
+      </div>
+    </div>
+    <div class="chart">
+      <div class="title">Spending - Last 7 days</div>
+      <div class="days">
+        <div class="day mon">
+          <div class="popover">$12.12</div>
+          <div class="block"></div>
+          <div class="name">mon</div>
+        </div>
+        <div class="day tue">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">tue</div>
+        </div>
+        <div class="day wed">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">wed</div>
+        </div>
+        <div class="day thu">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">thu</div>
+        </div>
+        <div class="day fri">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">fri</div>
+        </div>
+        <div class="day sat">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">sat</div>
+        </div>
+        <div class="day sun">
+          <div class="popover"></div>
+          <div class="block"></div>
+          <div class="name">sun</div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="bottom">
+        <div class="total-this-month">
+          <div class="label">Total this month</div>
+          <div class="value">$478.33</div>
+        </div>
+        <div class="from-last-month">
+          <div class="value">+2.4%</div>
+          <div class="label">from last month</div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script src="./script.js"></script>
 </body>
+
 </html>
