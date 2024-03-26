@@ -23,7 +23,11 @@ Users should be able to:
 
 ### Screenshot
 
+| Wider @600px | Smaller @301px | <= @300px |
+| ------------- | ------------- | ------------ |
+| <img width="450" alt="600px" src="https://github.com/gracepal/frontend-mentor/assets/131278381/0333ac00-6225-419f-92d1-478eefcf0812">  | <img width="300" alt="301px" src="https://github.com/gracepal/frontend-mentor/assets/131278381/2b4a5398-5111-43fd-a134-c7c40b8b551b"> | <img width="150" alt="299px" src="https://github.com/gracepal/frontend-mentor/assets/131278381/d1110ffc-27e5-4c89-8c6e-bd6c3c161309"> |
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/29-expenses-chart-component
+- Live Site URL: https://rococo-blini-e7a7e2.netlify.app/
