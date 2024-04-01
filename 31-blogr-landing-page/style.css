@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --font-family-overpass: "Overpass", sans-serif;
+    --font-weight-overpass-300: 300;
+    --font-weight-overpass-600: 600;
+    --font-family-ubuntu: "Ubuntu", sans-serif;
+    --font-weight-ubuntu-400: 400;
+    --font-weight-ubuntu-500: 500;
+    --font-weight-ubuntu-700: 700;
+    --font-size: 16px;
+
+    --color-primary-light-red-cta-text: hsl(356, 100%, 66%);
+    --color-primary-very-light-red-cta-hover-bg: hsl(355, 100%, 74%);
+    --color-primary-very-dark-blue-headings: hsl(208, 49%, 24%);
+    --color-white-text: hsl(0, 0%, 100%);
+
+    --color-neutral-grayish-blue-footer-text: hsl(240, 2%, 79%);
+    --color-neutral-very-dark-grayish-blue-body-copy: hsl(207, 13%, 34%);
+    --color-neutral-very-dark-black-blue-footerbg: hsl(240, 10%, 16%);
+
+    --color-gradient-intro-cta-mobile-nav-very-light-red: hsl(13, 100%, 72%);
+    --color-gradient-intro-cta-mobile-nav-light-red: hsl(353, 100%, 62%);
+    --color-gradient-body-very-dark-gray-blue: hsl(237, 17%, 21%);
+    --color-gradient-very-dark-desaturated-blue: hsl(237, 23%, 32%);
+
+    --designed-desktop-width: 1440px;
+    --designed-mobile-width: 375px;
+    --minimum-supported-width: 320px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ---------------------------------------- */
+/*                 HEADER                   */
+/* ---------------------------------------- */
+
+
+
+/* ---------------------------------------- */
+/*               (A) DESIGNED               */
+/* ---------------------------------------- */
+
+
+
+/* ---------------------------------------- */
+/*               (B) STATE                  */
+/* ---------------------------------------- */
+
+
+
+/* ---------------------------------------- */
+/*               (C) IMAGES                 */
+/* ---------------------------------------- */
+
+
+
+/* ---------------------------------------- */
+/*                 FOOTER                   */
+/* ---------------------------------------- */
+
+
+
+/* ---------------------------------------- */
+/*              MEDIA QUERIES               */
+/* ---------------------------------------- */
+
+
+
+
+/* ---------------------------------------- */
+/*                  DEBUG                   */
+/* ---------------------------------------- */
