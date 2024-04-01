@@ -34,5 +34,5 @@ Users should be able to:
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/30-interactive-card-details-form
+- Live Site URL: https://stately-vacherin-6b5a02.netlify.app/
