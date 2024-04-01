@@ -1,1 +1,1 @@
-console.log('Hello Blogger')
+setupPage()
