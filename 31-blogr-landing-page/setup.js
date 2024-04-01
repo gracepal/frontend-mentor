@@ -78,10 +78,36 @@ function setupSectionDesigned() {
     blockEl.appendChild(partTitleEl)
     blockEl.appendChild(partContentEl)
     blocksEl.appendChild(blockEl)
-    console.log(itemData)
   }
   contentEl.appendChild(blocksEl)
   designedEl.appendChild(contentEl)
+}
+
+function setupSectionInfra() {
+  console.log('FUNC: setupSectionInfra()')
+  const sectionData = data.sections[1]
+  // Section Title
+  const sectionTitleEl = getElement({ tagName: 'h2', text: sectionData.title })
+  infraEl.appendChild(sectionTitleEl)
+  // Content
+  const blockEl = getElement({ tagName: 'p', classes: ['block'], text: sectionData.items[0][1] })
+  infraEl.appendChild(blockEl)
+}
+
+function setupSectionFeatures() {
+  console.log('FUNC: setupSectionFeatures()')
+  const sectionItems = data.sections[2].items
+  // Content
+  const blocksEl = getElement({ tagName: 'div', classes: ['blocks'] })
+  for (const itemData of sectionItems) {
+    const blockEl = getElement({ tagName: 'div', classes: ['block'] })
+    const partTitleEl = getElement({ tagName: 'h3', text: itemData[0] })
+    const partContentEl = getElement({ tagName: 'p', text: itemData[1] })
+    blockEl.appendChild(partTitleEl)
+    blockEl.appendChild(partContentEl)
+    blocksEl.appendChild(blockEl)
+  }
+  featuresEl.appendChild(blocksEl)
 }
 
 function setupFooter() {
@@ -115,5 +141,7 @@ async function setupPage() {
   await loadData()
   setupHeader()
   setupSectionDesigned()
+  setupSectionInfra()
+  setupSectionFeatures()
   setupFooter()
 }
