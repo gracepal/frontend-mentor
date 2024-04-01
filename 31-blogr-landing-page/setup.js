@@ -16,7 +16,7 @@ async function loadData() {
     })
 }
 
-function getElement({ tagName, text = '', classes = [], id = null, name = null, alt = null, src = null, value = null }) {
+function getElement({ tagName, text = '', classes = [], id = null, name = null, alt = null, src = null, value = null, forVal = null }) {
   const el = document.createElement(tagName)
   el.textContent = text
   classes.forEach((className) => {
@@ -27,11 +27,13 @@ function getElement({ tagName, text = '', classes = [], id = null, name = null, 
   if (alt) el.alt = alt
   if (src) el.src = src
   if (value) el.value = value
+  if (forVal) el.for = forVal
   return el
 }
 
 function setupHeader() {
   console.log('FUNC: setupHeader()')
+  // Nav Part
   const navEl = getElement({ tagName: 'nav', classes: ['nav'] })
   // Logo container
   const logoContainerEl = getElement({ tagName: 'div', classes: ['logo-container'] })
@@ -42,11 +44,13 @@ function setupHeader() {
   for (const linkData of data.links) {
     const dropdownVal = linkData[0]
     const optionVals = linkData[1]
+    const labelEl = getElement({ tagName: 'label', forVal: `select${dropdownVal}`, text: dropdownVal })
     const selectEl = getElement({ tagName: 'select', classes: [`select${dropdownVal}`], id: `select${dropdownVal}`, name: `select${dropdownVal}` })
     for (const optionVal of optionVals) {
       const optionEl = getElement({ tagName: 'option', value: optionVal.toLowerCase(), text: optionVal })
       selectEl.appendChild(optionEl)
     }
+    linksContainerEl.appendChild(labelEl)
     linksContainerEl.appendChild(selectEl)
   }
   // Buttons container
@@ -60,6 +64,19 @@ function setupHeader() {
   navEl.appendChild(linksContainerEl)
   navEl.appendChild(buttonsContainerEl)
   headerEl.appendChild(navEl)
+  // Header Part
+  const headerContentEl = getElement({ tagName: 'div', classes: ['header-content'] })
+  const mainTitleEl = getElement({ tagName: 'h1', text: data.title })
+  headerContentEl.appendChild(mainTitleEl)
+  const subtitleEl = getElement({ tagName: 'h2', text: data.subtitle })
+  headerContentEl.appendChild(subtitleEl)
+  const nextButtonsContainerEl = getElement({ tagName: 'div', classes: ['buttons-container'] })
+  const startButtonEl = getElement({ tagName: 'button', text: data.buttons.start })
+  const moreButtonEl = getElement({ tagName: 'button', text: data.buttons.more })
+  nextButtonsContainerEl.appendChild(startButtonEl)
+  nextButtonsContainerEl.appendChild(moreButtonEl)
+  headerContentEl.appendChild(nextButtonsContainerEl)
+  headerEl.appendChild(headerContentEl)
 }
 
 function setupSectionDesigned() {
