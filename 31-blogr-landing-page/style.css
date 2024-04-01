@@ -17,7 +17,7 @@
 
     --color-neutral-grayish-blue-footer-text: hsl(240, 2%, 79%);
     --color-neutral-very-dark-grayish-blue-body-copy: hsl(207, 13%, 34%);
-    --color-neutral-very-dark-black-blue-footerbg: hsl(240, 10%, 16%);
+    --color-neutral-very-dark-black-blue-footer-bg: hsl(240, 10%, 16%);
 
     --color-gradient-intro-cta-mobile-nav-very-light-red: hsl(13, 100%, 72%);
     --color-gradient-intro-cta-mobile-nav-light-red: hsl(353, 100%, 62%);
@@ -29,11 +29,19 @@
     --minimum-supported-width: 320px;
 }
 
+/* ---------------------------------------- */
+/*                 COMMON                   */
+/* ---------------------------------------- */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 .hidden {
@@ -48,7 +56,6 @@ html, body {
 .container {
     display: flex;
     flex-direction: column;
-
 }
 
 /* ---------------------------------------- */
@@ -83,7 +90,9 @@ header {
 /*                 FOOTER                   */
 /* ---------------------------------------- */
 
-
+footer {
+    /* background-color: var(--color-neutral-very-dark-black-blue-footer-bg); */
+}
 
 /* ---------------------------------------- */
 /*              MEDIA QUERIES               */

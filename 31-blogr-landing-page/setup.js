@@ -64,6 +64,28 @@ function setupHeader() {
 
 function setupFooter() {
   console.log('FUNC: setupFooter()')
+  // Logo container
+  const logoContainerEl = getElement({ tagName: 'div', classes: ['logo-container'] })
+  const imgEl = getElement({ tagName: 'img', src: './images/logo.svg', alt: 'logo' })
+  logoContainerEl.appendChild(imgEl)
+  // Links container
+  const linksContainerEl = getElement({ tagName: 'div', classes: ['links-container'] })
+  for (const linkData of data.links) {
+    const titleVal = linkData[0]
+    const linkVals = linkData[1]
+    const groupContainerEl = getElement({ tagName: 'div', classes: ['group-container', `group-${titleVal.toLowerCase()}`] })
+    const titlEl = getElement({ tagName: 'div', text: titleVal })
+    const ulEl = getElement({ tagName: 'ul', classes: [`group-${titleVal.toLowerCase()}`] })
+    groupContainerEl.appendChild(titlEl)
+    for (const linkVal of linkVals) {
+      const linkEl = getElement({ tagName: 'li', value: linkVal.toLowerCase(), text: linkVal })
+      ulEl.appendChild(linkEl)
+    }
+    groupContainerEl.appendChild(ulEl)
+    linksContainerEl.appendChild(groupContainerEl)
+  }
+  footerEl.appendChild(logoContainerEl)
+  footerEl.appendChild(linksContainerEl)
 }
 
 async function setupPage() {
