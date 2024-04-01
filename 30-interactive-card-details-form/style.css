@@ -26,7 +26,7 @@
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 html, body {
@@ -42,7 +42,7 @@ html, body {
 }
 
 .cards {
-    background: linear-gradient(to right, rebeccapurple 70%, transparent 30%);
+    background: linear-gradient(to right, rgb(52, 16, 88) 70%, transparent 30%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -219,6 +219,46 @@ input[name="card-number"] {
     cursor: pointer;
 }
 
+/* CONFIRMATION */
+.confirmation {
+    height: 320px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.confirmation img {
+    width: 50px;
+}
+
+.confirmation h1 {
+    font-size: calc(var(--font-size) * 2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--font-medium);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.confirmation h2 {
+    color: var(--color-dark-grayish-violet);
+}
+
+.confirmation button {
+    width: 78%;
+    padding: 8px 0;
+    border-radius: 5px;
+    background-color: var(--color-very-dark-violet);
+    color: var(--color-white);
+}
+
+.confirmation button:hover {
+    cursor: pointer;
+}
+
 
 /* MEDIA QUERIES */
 @media only screen and (max-width:960px) {
@@ -270,6 +310,18 @@ input[name="card-number"] {
         padding: 20px 10px;
         border-radius: 10px;
     }
+
+    /* Error Form */
+    .container:has(.error) {
+        grid-template-rows: 30% 65%;
+    }
+    .form-container:has(.error) {
+        align-items: center;
+    }
+    .container:has(.error) {
+        max-height: 840px;
+    }
+
 }
 
 /* For Debugging */

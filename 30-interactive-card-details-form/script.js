@@ -10,6 +10,8 @@ const cardNumDisplay = document.querySelector('.content .card-front .card-number
 const cardNameDisplay = document.querySelector('.content .card-front .name')
 const cardExpDateDisplay = document.querySelector('.content .card-front .exp-date')
 const cardCvcDisplay = document.querySelector('.content .card-back .cvc')
+const confirmEl = document.querySelector('.confirmation')
+const continueBtn = document.querySelector('.btn-continue')
 
 // Error messages
 const mssgErrorBlank = "Can't be blank"
@@ -129,6 +131,7 @@ formEl.addEventListener('submit', function (e) {
   if (document.querySelectorAll('.error').length === 0) {
     console.log('---- GOOD ')
     updateDisplay(formValues)
+    displayConfirmation()
   }
   console.log(formValues)
 })
@@ -158,6 +161,11 @@ function updateDisplay(formValues) {
   cardCvcDisplay.textContent = formValues['cvc']
 }
 
+function displayConfirmation() {
+  formEl.classList.toggle('hidden')
+  confirmEl.classList.toggle('hidden')
+}
+
 function resetForm() {
   // reset display
   cardNameDisplay.textContent = defaultName
@@ -171,6 +179,15 @@ function resetForm() {
   expMonthInput.value = ''
   expYearInput.value = ''
   cvcInput.value = ''
+  // handle displays
+  confirmEl.classList.add('hidden')
+  formEl.classList.remove('hidden')
 }
+
+continueBtn.addEventListener('click', function () {
+  console.log('-- clicked Continue')
+  confirmEl.classList.add('hidden')
+  formEl.classList.remove('hidden')
+})
 
 resetForm()
