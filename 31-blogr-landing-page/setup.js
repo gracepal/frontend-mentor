@@ -62,6 +62,28 @@ function setupHeader() {
   headerEl.appendChild(navEl)
 }
 
+function setupSectionDesigned() {
+  console.log('FUNC: setupSectionDesigned()')
+  const sectionData = data.sections[0]
+  // Section Title
+  const sectionTitleEl = getElement({ tagName: 'h2', text: sectionData.title })
+  designedEl.appendChild(sectionTitleEl)
+  // Content
+  const contentEl = getElement({ tagName: 'div', classes: ['content'] })
+  const blocksEl = getElement({ tagName: 'div', classes: ['blocks'] })
+  for (const itemData of sectionData.items) {
+    const blockEl = getElement({ tagName: 'div', classes: ['block'] })
+    const partTitleEl = getElement({ tagName: 'h3', text: itemData[0] })
+    const partContentEl = getElement({ tagName: 'p', text: itemData[1] })
+    blockEl.appendChild(partTitleEl)
+    blockEl.appendChild(partContentEl)
+    blocksEl.appendChild(blockEl)
+    console.log(itemData)
+  }
+  contentEl.appendChild(blocksEl)
+  designedEl.appendChild(contentEl)
+}
+
 function setupFooter() {
   console.log('FUNC: setupFooter()')
   // Logo container
@@ -92,5 +114,6 @@ async function setupPage() {
   console.log('FUNC: setupPage()')
   await loadData()
   setupHeader()
+  setupSectionDesigned()
   setupFooter()
 }
