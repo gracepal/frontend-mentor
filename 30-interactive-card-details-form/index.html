@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="cards">
+      <div class="content">
+        <div class="card-front">
+          <div class="top">
+            <img src="./images/card-logo.svg" alt="">
+          </div>
+          <div class="bottom">
+            <div class="card-number">
+              0000 0000 0000 0000
+            </div>
+            <div class="name-and-exp">
+              <div class="name">Jane Appleseed</div>
+              <div class="exp-date">09/00</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="cvc">000</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-container">
+      <form action="" class="form">
+        <div class="row">
+          <label for="name">Cardholder Name</label>
+          <input type="text" placeholder="e.g. Jane Appleseed" name="name" id="name">
+          <div class="error-message"></div>
+        </div>
+        <div class="row">
+          <label for="card-number">Card Number</label>
+          <input type="text" placeholder="e.g. 1234 5678 9123 0000" name="card-number" id="card-number" maxlength=19>
+          <div class="error-message"></div>
+        </div>
+        <div class="row">
+          <div class="group exp-date">
+            <label for="exp-date">Exp. Date (MM/YY)</label>
+            <div class="pair">
+              <input type="text" name="exp-date-mm" id="exp-date-mm" placeholder="MM" maxlength=2>
+              <input type="text" name="exp-date-yy" id="exp-date-yy" placeholder="YY" maxlength=2>
+            </div>
+            <div class="error-message"></div>
+          </div>
+          <div class="group cvc">
+            <label for="cvc">CVC</label>
+            <input type="text" placeholder="e.g. 123" name="cvc" id="cvc" maxlength=3>
+            <div class="error-message"></div>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn-confirm">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Completed state start -->
+  <!-- <div class="confirmed-thankyou">
+    Thank you!
+    We've added your card details
+    Continue
+  </div> -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
