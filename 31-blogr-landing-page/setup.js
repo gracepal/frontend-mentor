@@ -44,14 +44,19 @@ function setupHeader() {
   for (const linkData of data.links) {
     const dropdownVal = linkData[0]
     const optionVals = linkData[1]
+    const dropdownEl = getElement({ tagName: 'div', classes: ['dropdown'] })
     const labelEl = getElement({ tagName: 'label', forVal: `select${dropdownVal}`, text: dropdownVal })
+    const iconElement = document.createElement('i')
+    iconElement.classList.add('fa-solid', 'fa-angle-down')
+    labelEl.appendChild(iconElement)
     const selectEl = getElement({ tagName: 'select', classes: [`select${dropdownVal}`], id: `select${dropdownVal}`, name: `select${dropdownVal}` })
     for (const optionVal of optionVals) {
       const optionEl = getElement({ tagName: 'option', value: optionVal.toLowerCase(), text: optionVal })
       selectEl.appendChild(optionEl)
     }
-    linksContainerEl.appendChild(labelEl)
-    linksContainerEl.appendChild(selectEl)
+    dropdownEl.appendChild(labelEl)
+    dropdownEl.appendChild(selectEl)
+    linksContainerEl.appendChild(dropdownEl)
   }
   // Buttons container
   const buttonsContainerEl = getElement({ tagName: 'div', classes: ['buttons-container'] })
@@ -103,12 +108,14 @@ function setupSectionDesigned() {
 function setupSectionInfra() {
   console.log('FUNC: setupSectionInfra()')
   const sectionData = data.sections[1]
+  const contentEl = getElement({ tagName: 'div', classes: ['content'] })
   // Section Title
   const sectionTitleEl = getElement({ tagName: 'h2', text: sectionData.title })
-  infraEl.appendChild(sectionTitleEl)
+  contentEl.appendChild(sectionTitleEl)
   // Content
   const blockEl = getElement({ tagName: 'p', classes: ['block'], text: sectionData.items[0][1] })
-  infraEl.appendChild(blockEl)
+  contentEl.appendChild(blockEl)
+  infraEl.appendChild(contentEl)
 }
 
 function setupSectionFeatures() {
