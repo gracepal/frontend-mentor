@@ -20,7 +20,11 @@ Users should be able to:
 
 ### Screenshot
 
+| Desktop  | Mobile - Top | Mobile - Bottom | Mobile - Nav |
+| ------------- | ------------- | ------------- | ------------- |
+| <img width="375" alt="desktop" src="https://github.com/gracepal/frontend-mentor/assets/131278381/16cfd7e1-b7b8-4310-be25-1e728686354d"> | <img width="125" alt="mobile top" src="https://github.com/gracepal/frontend-mentor/assets/131278381/af593241-6cb3-41bc-bc5d-be59f53ae564"> | <img width="125" alt="mobile bottom" src="https://github.com/gracepal/frontend-mentor/assets/131278381/e4fb427a-86de-4f03-8f46-969aff61fe4b"> | <img width="275" alt="mobile nav" src="https://github.com/gracepal/frontend-mentor/assets/131278381/32bc20fb-b98a-435c-b429-2829d977e703"> |
+
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://github.com/gracepal/frontend-mentor/tree/main/31-blogr-landing-page
+- Live Site URL: https://cozy-dango-da5dd3.netlify.app
