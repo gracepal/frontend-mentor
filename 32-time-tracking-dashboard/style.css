@@ -31,3 +31,189 @@
     font-size: var(--font-size);
     font-weight: var(--font-normal);
 }
+
+html {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid salmon; */
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-very-dark-blue--neutral);
+
+    /* border: 2px solid cyan; */
+}
+
+.container {
+    min-width: 1000px;
+    max-width: 90%;
+    height: auto;
+
+    /* border: 2px solid pink; */
+}
+
+.cards {
+    display: grid;
+    grid-template-areas:
+    "profile work play study"
+    "profile exercise social selfcare";
+    gap: 25px;
+
+    /* border: 5px solid goldenrod; */
+}
+
+.card {
+    min-height: 200px;
+    border-radius: 25px;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Profile Card */
+
+.card.profile {
+    grid-area: profile;
+    border: 1px solid var(--color-blue-primary);
+    background-color: var(--color-dark-blue--neutral);
+    z-index: 2;
+}
+
+.card.profile .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 70%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--color-blue-primary);
+    z-index: 1;
+}
+
+/* NOT Profile Card */
+
+.card:not(.profile) .content {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--color-dark-blue--neutral);
+    z-index: 2;
+}
+
+.card:not(.profile):hover {
+    cursor: pointer;
+}
+
+.card:not(.profile):hover .content {
+    filter: brightness(120%);
+}
+
+/* Work Card */
+
+.card.work {
+    grid-area: work;
+    background-color: var(--color-light-red--work);
+    border: 1px solid var(--color-light-red--work);
+}
+
+.card.work::before {
+    content: url('./images/icon-work.svg');
+    top: -4%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Exercise Card */
+
+.card.exercise {
+    grid-area: exercise;
+    background-color: var(--color-lime-green--exercise);
+    border: 1px solid var(--color-lime-green--exercise);
+}
+
+.card.exercise::before {
+    content: url('./images/icon-exercise.svg');
+    top: -4%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Play Card */
+
+.card.play {
+    grid-area: play;
+    background-color: var(--color-soft-blue--play);
+    border: 1px solid var(--color-soft-blue--play);
+}
+
+.card.play::before {
+    content: url('./images/icon-play.svg');
+    top: -4%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Social Card */
+
+.card.social {
+    grid-area: social;
+    background-color: var(--color-violet--social);
+    border: 1px solid var(--color-violet--social);
+}
+
+.card.social::before {
+    content: url('./images/icon-social.svg');
+    top: -12%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Study Card */
+
+.card.study {
+    grid-area: study;
+    background-color: var(--color-light-red--study);
+    border: 1px solid var(--color-light-red--study);
+}
+
+.card.study::before {
+    content: url('./images/icon-study.svg');
+    top: -4%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
+
+/* Self Care Card */
+
+.card.selfcare {
+    grid-area: selfcare;
+    background-color: var(--color-soft-orange--selfcare);
+    border: 1px solid var(--color-soft-orange--selfcare);
+}
+
+.card.selfcare::before {
+    content: url('./images/icon-self-care.svg');
+    top: -4%;
+    right: 4%;
+    transform: scale(75%, 75%);
+    position: absolute;
+    z-index: 1;
+}
