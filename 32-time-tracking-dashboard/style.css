@@ -138,7 +138,6 @@ body {
 }
 
 .profile a.active {
-    /* font-weight: var(--font-bold); */
     color: white;
 }
 
