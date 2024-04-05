@@ -137,8 +137,13 @@ body {
     color: var(--color-desaturated-blue--neutral);
 }
 
+.profile a.active {
+    /* font-weight: var(--font-bold); */
+    color: white;
+}
+
 .profile a:hover {
-    color: var(--color-pale-blue--neutral);
+    color: white;
 }
 
 .profile a:active {
