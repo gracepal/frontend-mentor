@@ -17,6 +17,9 @@
     --color-dark-blue--neutral: hsl(235, 46%, 20%);
     --color-desaturated-blue--neutral: hsl(235, 45%, 61%);
     --color-pale-blue--neutral: hsl(236, 100%, 87%);
+
+    --card-padding: 25px;
+    --content-padding: 15px;
 }
 
 * {
@@ -51,7 +54,7 @@ body {
 
 .container {
     min-width: 1000px;
-    max-width: 90%;
+    max-width: 95%;
     height: auto;
 
     /* border: 2px solid pink; */
@@ -62,17 +65,18 @@ body {
     grid-template-areas:
     "profile work play study"
     "profile exercise social selfcare";
-    gap: 25px;
+    gap: var(--card-padding);
 
     /* border: 5px solid goldenrod; */
 }
 
 .card {
-    min-height: 200px;
+    min-height: 230px;
     border-radius: 25px;
     position: relative;
     height: 100%;
     overflow: hidden;
+    padding: var(--card-padding);
 }
 
 /* Profile Card */
@@ -82,6 +86,27 @@ body {
     border: 1px solid var(--color-blue-primary);
     background-color: var(--color-dark-blue--neutral);
     z-index: 2;
+    color: var(--color-pale-blue--neutral);
+}
+
+.card.profile img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 32px;
+}
+
+.report {
+    font-size: calc(var(--font-size) * 0.8)
+}
+
+.report .user {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: calc(var(--font-size) * 2.2);
+    color: white;
+    font-weight: var(--font-light);
 }
 
 .card.profile .content {
@@ -93,6 +118,31 @@ body {
     border-radius: 15px;
     background-color: var(--color-blue-primary);
     z-index: 1;
+    padding: var(--card-padding);
+}
+
+.profile .links {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profile a {
+    color: var(--color-desaturated-blue--neutral);
+}
+
+.profile a:hover {
+    color: var(--color-pale-blue--neutral);
+}
+
+.profile a:active {
+    font-weight: var(--font-bold);
 }
 
 /* NOT Profile Card */
@@ -106,6 +156,7 @@ body {
     border-radius: 15px;
     background-color: var(--color-dark-blue--neutral);
     z-index: 2;
+    padding: var(--card-padding);
 }
 
 .card:not(.profile):hover {
@@ -114,6 +165,46 @@ body {
 
 .card:not(.profile):hover .content {
     filter: brightness(120%);
+}
+
+.card:not(.profile) .content h2 {
+    color: white;
+    display: inline-block;
+}
+
+button.ellipses {
+    position: absolute;
+    top: var(--card-padding);
+    right:var(--card-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+button.ellipses:hover {
+    cursor: pointer;
+}
+
+.card .current {
+    display: block;
+    font-size: calc(var(--font-size) * 2.5);
+    color: white;
+    font-weight: var(--font-light);
+    padding: 28px 0 5px 0;
+}
+
+.card .previous {
+    display: block;
+    color: var(--color-pale-blue--neutral);
+    font-weight: var(--font-light);
+    font-size: calc(var(--font-size) * 0.8);
+    margin-top: 6px;
+}
+
+.card .previous span {
+    font-weight: inherit;
+    font-size: inherit;
 }
 
 /* Work Card */
