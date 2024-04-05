@@ -45,17 +45,17 @@ function setupHeader() {
     const dropdownVal = linkData[0]
     const optionVals = linkData[1]
     const dropdownEl = getElement({ tagName: 'div', classes: ['dropdown'] })
-    const labelEl = getElement({ tagName: 'label', forVal: `select${dropdownVal}`, text: dropdownVal })
+    const dropdownContentEl = getElement({ tagName: 'div', classes: ['dropdown-content', 'hidden'] })
+    const labelEl = getElement({ tagName: 'button', text: dropdownVal })
     const iconElement = document.createElement('i')
     iconElement.classList.add('fa-solid', 'fa-angle-down')
     labelEl.appendChild(iconElement)
-    const selectEl = getElement({ tagName: 'select', classes: [`select${dropdownVal}`], id: `select${dropdownVal}`, name: `select${dropdownVal}` })
     for (const optionVal of optionVals) {
-      const optionEl = getElement({ tagName: 'option', value: optionVal.toLowerCase(), text: optionVal })
-      selectEl.appendChild(optionEl)
+      const optionEl = getElement({ tagName: 'a', href: '#', text: optionVal })
+      dropdownContentEl.appendChild(optionEl)
     }
     dropdownEl.appendChild(labelEl)
-    dropdownEl.appendChild(selectEl)
+    dropdownEl.appendChild(dropdownContentEl)
     linksContainerEl.appendChild(dropdownEl)
   }
   // Buttons container
@@ -83,6 +83,10 @@ function setupHeader() {
   headerContentEl.appendChild(nextButtonsContainerEl)
   headerEl.appendChild(headerContentEl)
 }
+
+// function setupHamburger() {
+//   const hamburgerEl = getElement({ tagName: 'div', id: 'hamburger' })
+// }
 
 function setupSectionDesigned() {
   console.log('FUNC: setupSectionDesigned()')
@@ -158,6 +162,75 @@ function setupFooter() {
   }
   footerEl.appendChild(logoContainerEl)
   footerEl.appendChild(linksContainerEl)
+}
+
+// Hamburger
+
+function setupHamburger() {
+  const hamburgerBtnContainer = document.querySelector('.hamburger-btn-container')
+  const hamburgerBtn = document.querySelector('#btn-hamburger')
+  const hamburgerMenuContainer = document.querySelector('.hamburger-menu')
+  const hamburgerMenuProduct = document.querySelector('.hamburger-dropdown:nth-of-type(1)')
+  const hamburgerMenuCompany = document.querySelector('.hamburger-dropdown:nth-of-type(2)')
+  const hamburgerMenuConnect = document.querySelector('.hamburger-dropdown:nth-of-type(3)')
+
+  if (this.window.innerWidth <= 880) {
+    console.log('under')
+    makeHamburgerOnline()
+  } else {
+    console.log('over')
+  }
+
+  this.window.addEventListener('resize', function () {
+    if (this.window.innerWidth <= 880) {
+      makeHamburgerOnline()
+    } else {
+    }
+  })
+
+  function makeHamburgerOnline() {
+    hamburgerBtnContainer.classList.remove('offline')
+  }
+
+  hamburgerBtn.addEventListener('click', function (e) {
+    const clickedBtn = e.target.closest('#btn-hamburger')
+    if (clickedBtn.classList.contains('closed')) {
+      clickedBtn.classList.remove('closed')
+      clickedBtn.firstElementChild.src = './images/icon-close.svg'
+      hamburgerMenuContainer.classList.remove('offline')
+    } else {
+      clickedBtn.classList.add('closed')
+      clickedBtn.firstElementChild.src = './images/icon-hamburger.svg'
+      hamburgerMenuContainer.classList.add('offline')
+    }
+  })
+
+  hamburgerMenuProduct.addEventListener('click', function (e) {
+    const clickedBtn = e.target.closest('.hamburger-dropdown')
+    if (clickedBtn.classList.contains('closed')) {
+      clickedBtn.classList.remove('closed')
+    } else {
+      clickedBtn.classList.add('closed')
+    }
+  })
+
+  hamburgerMenuCompany.addEventListener('click', function (e) {
+    const clickedBtn = e.target.closest('.hamburger-dropdown')
+    if (clickedBtn.classList.contains('closed')) {
+      clickedBtn.classList.remove('closed')
+    } else {
+      clickedBtn.classList.add('closed')
+    }
+  })
+
+  hamburgerMenuConnect.addEventListener('click', function (e) {
+    const clickedBtn = e.target.closest('.hamburger-dropdown')
+    if (clickedBtn.classList.contains('closed')) {
+      clickedBtn.classList.remove('closed')
+    } else {
+      clickedBtn.classList.add('closed')
+    }
+  })
 }
 
 async function setupPage() {
