@@ -39,7 +39,7 @@ function udpateDashboard(timeframe) {
     const currentHrsVal = timeframes[timeframe].current
     const previousHrsVal = timeframes[timeframe].previous
     currentHrsEl.textContent = `${currentHrsVal}${currentHrsVal == '1' ? 'hr' : 'hrs'}`
-    previousTypeEl.textContent = ['weekly', 'monthly'].includes(timeframe) ? timeframe.slice(0, -2) : 'day'
+    previousTypeEl.textContent = ['weekly', 'monthly'].includes(timeframe) ? `${timeframe.slice(0, -2)}` : ' day'
     previousHrsEl.textContent = `${previousHrsVal}${previousHrsVal == '1' ? 'hr' : 'hrs'}`
   }
 }
@@ -56,7 +56,7 @@ async function loadData() {
         const previousTypeEl = contentEl.children[0].children[3].children[0]
         const previousHrsEl = contentEl.children[0].children[3].children[1]
         currentHrsEl.textContent = `${timeframes[dashboardTimeframe].current}hrs`
-        previousTypeEl.textContent = ['weekly', 'monthly'].includes(dashboardTimeframe) ? dashboardTimeframe.slice(0, -2) : 'day'
+        previousTypeEl.textContent = ['weekly', 'monthly'].includes(dashboardTimeframe) ? dashboardTimeframe.charAt(0).toUpperCase() + dashboardTimeframe.slice(1, -2) : 'Day'
         previousHrsEl.textContent = `${timeframes[dashboardTimeframe].previous}hrs`
       }
     })

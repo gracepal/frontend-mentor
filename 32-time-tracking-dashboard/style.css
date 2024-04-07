@@ -38,26 +38,21 @@
 html {
     width: 100%;
     height: 100%;
-    /* border: 2px solid salmon; */
 }
 
 body {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--color-very-dark-blue--neutral);
-
-    /* border: 2px solid cyan; */
 }
 
 .container {
     min-width: 1000px;
     max-width: 95%;
-    height: auto;
-
-    /* border: 2px solid pink; */
 }
 
 .cards {
@@ -66,8 +61,6 @@ body {
     "profile work play study"
     "profile exercise social selfcare";
     gap: var(--card-padding);
-
-    /* border: 5px solid goldenrod; */
 }
 
 .card {
@@ -83,7 +76,7 @@ body {
 
 .card.profile {
     grid-area: profile;
-    border: 1px solid var(--color-blue-primary);
+    /* border: 1px solid var(--color-blue-primary); */
     background-color: var(--color-dark-blue--neutral);
     z-index: 2;
     color: var(--color-pale-blue--neutral);
@@ -168,7 +161,8 @@ body {
 }
 
 .card:not(.profile):hover .content {
-    filter: brightness(120%);
+    filter: brightness(165%);
+    box-shadow: 0 1px 5px rgba(211,211,211,0.3);
 }
 
 .card:not(.profile) .content h2 {
@@ -209,6 +203,7 @@ button.ellipses:hover {
 .card .previous span {
     font-weight: inherit;
     font-size: inherit;
+    margin-left: 3px;
 }
 
 /* Work Card */
@@ -216,7 +211,7 @@ button.ellipses:hover {
 .card.work {
     grid-area: work;
     background-color: var(--color-light-red--work);
-    border: 1px solid var(--color-light-red--work);
+    /* border: 1px solid var(--color-light-red--work); */
 }
 
 .card.work::before {
@@ -233,7 +228,7 @@ button.ellipses:hover {
 .card.exercise {
     grid-area: exercise;
     background-color: var(--color-lime-green--exercise);
-    border: 1px solid var(--color-lime-green--exercise);
+    /* border: 1px solid var(--color-lime-green--exercise); */
 }
 
 .card.exercise::before {
@@ -250,7 +245,7 @@ button.ellipses:hover {
 .card.play {
     grid-area: play;
     background-color: var(--color-soft-blue--play);
-    border: 1px solid var(--color-soft-blue--play);
+    /* border: 1px solid var(--color-soft-blue--play); */
 }
 
 .card.play::before {
@@ -267,7 +262,7 @@ button.ellipses:hover {
 .card.social {
     grid-area: social;
     background-color: var(--color-violet--social);
-    border: 1px solid var(--color-violet--social);
+    /* border: 1px solid var(--color-violet--social); */
 }
 
 .card.social::before {
@@ -284,7 +279,7 @@ button.ellipses:hover {
 .card.study {
     grid-area: study;
     background-color: var(--color-light-red--study);
-    border: 1px solid var(--color-light-red--study);
+    /* border: 1px solid var(--color-light-red--study); */
 }
 
 .card.study::before {
@@ -301,7 +296,7 @@ button.ellipses:hover {
 .card.selfcare {
     grid-area: selfcare;
     background-color: var(--color-soft-orange--selfcare);
-    border: 1px solid var(--color-soft-orange--selfcare);
+    /* border: 1px solid var(--color-soft-orange--selfcare); */
 }
 
 .card.selfcare::before {
@@ -311,4 +306,103 @@ button.ellipses:hover {
     transform: scale(75%, 75%);
     position: absolute;
     z-index: 1;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1060px) {
+    .container {
+        min-width: 800px;
+    }
+    .cards {
+        gap: var(--content-padding);
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    body {
+        padding-top: 5%;
+        width: 100%;
+    }
+    .container {
+        min-width: 95%;
+        max-width: 375px;
+    }
+    .cards {
+        max-width: 370px;
+        grid-template-areas:
+        "profile"
+        "work"
+        "play"
+        "study"
+        "exercise"
+        "social"
+        "selfcare";
+        gap: var(--card-padding);
+        margin: 0 auto;
+    }
+    .card.profile {
+        min-height: 250px;
+    }
+    .card.profile .content {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+    .card.profile img {
+        border: 3px solid white;
+    }
+    .report .user {
+        font-size: calc(var(--font-size) * 1.5);
+        white-space: nowrap;
+    }
+    .profile .links {
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: -15px;
+    }
+    .card:not(.profile) {
+        min-height: 200px;
+    }
+
+    .card:not(.profile) .content {
+        display: grid;
+        grid-template-areas:
+        "title ellipses"
+        "current previous"
+    }
+    .ellipses + .current,
+    .ellipses + .previous {
+        display: inline;
+    }
+    .card:not(.profile) .content h2 {
+        grid-area: title;
+        display: inline;
+    }
+    .card .ellipses {
+        grid-area: ellipses;
+        top: 0;
+        right: 0;
+    }
+    .card .current {
+        grid-area: current;
+        display: flex;
+        align-items: center;
+        padding: unset;
+    }
+    .card .previous {
+        grid-area: previous;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: unset;
+    }
+    .pad-bottom {
+        width: 100%;
+        min-height: 100px;
+        opacity: 0;
+    }
 }
